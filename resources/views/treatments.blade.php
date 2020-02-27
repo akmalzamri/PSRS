@@ -1,4 +1,4 @@
-@extends('navigationbar.nav')
+@extends('layouts.userMaster')
 <!doctype html>
 <html lang="en">
 
