@@ -1,10 +1,11 @@
 @extends('layouts.userMaster')
 
 @section('content')
+<div class="card-header">
 <!--================Category Product Area =================-->
 
     <div class="row flex-row-reverse">
-      <div class="col-lg-9">
+     
   @if (session('status'))
       <div class="alert alert-success" role="alert">
           {{ session('status')}}
@@ -12,16 +13,7 @@
       @endif
         <div class="product_top_bar">
           <div class="left_dorp">
-            <select class="sorting">
-              <option value="1">Default sorting</option>
-              <option value="2">Default sorting 01</option>
-              <option value="4">Default sorting 02</option>
-            </select>
-            <select class="show">
-              <option value="1">Show 12</option>
-              <option value="2">Show 14</option>
-              <option value="4">Show 16</option>
-            </select>
+          
           </div>
         </div>
         
@@ -37,13 +29,12 @@
                     alt=""
                   />
                   <div class="p_icon">
-                    <a href="#">
+                    <a href="javascript:;"  data-toggle="modal" onclick="deleteData()" 
+                    data-target="#DeleteModal">
                       <i class="ti-eye"></i>
+                     
                     </a>
-                    <a href="#">
-                      <i class="ti-heart"></i>
-                    </a>
-                    <a href="{{ url('add-to-cart/'.$row->treatments_id) }}" class="btn btn-success">
+                    <a href="{{ url('add-to-cart/'.$row->treatments_id) }}">
                       <i class="ti-shopping-cart"></i>
                     </a>
                   </div>
@@ -60,7 +51,29 @@
               </div>
             </div>
             @endforeach
+            
+          </div>
+          <div class="row-center">
             {{ $treatments->links() }} 
 
+          </div>
 <!--================End Category Product Area =================-->
+
+<div id="DeleteModal" class="modal fade " role="dialog">
+  <div class="modal-dialog ">
+      <!-- Modal content-->
+      <form action="" id="deleteForm" method="post">
+          <div class="modal-content">
+              <div class="modal-header ">
+        
+              </div>
+              <div class="table-responsive">
+            
+                
+              
+              </div>
+          </div>
+      </form>
+  </div>
+</div>
 @endsection

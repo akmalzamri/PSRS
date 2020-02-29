@@ -12,7 +12,7 @@ class WelcomeController extends Controller
     public function index()
     {
 
-        $treatments = \App\Treatments::paginate(4);
+        $treatments = \App\Treatments::paginate(6);
 
         return view('welcome')->with('treatments', $treatments);
     }

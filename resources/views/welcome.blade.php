@@ -251,38 +251,18 @@
           <div class="tab-content text-left">
             <div class="tab-pane fade show active" id="pills-Massage" role="tabpanel" aria-labelledby="pills-Massage-tab">
               <div class="row">
+                @foreach ($treatments as $treatment)
                 <div class="col-md-6 site-animate">
                   <div class="media menu-item">
-                    <img class="mr-3" src="images/service_2.jpg" class="img-fluid" alt="Free Template by colorlib.com">
+                    <img class="mr-3" src="/{{$treatment->photo_path}}" class="img-fluid" alt="Free Template by colorlib.com">
                     <div class="media-body">
-                      <h5 class="mt-0">Half an Hour</h5>
+                      <h5 class="mt-0">{{ $treatment->treatmentname }}</h5>
                       <!-- <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
-                      <h6 class="text-primary menu-price">RM 40</h6>
+                      <h6 class="text-primary menu-price">RM {{ $treatment->treatmentprice }}</h6>
                     </div>
                   </div>
-
-                  <div class="media menu-item">
-                    <img class="mr-3" src="images/service_4.jpg" class="img-fluid" alt="Free Template by colorlib.com">
-                    <div class="media-body">
-                      <h5 class="mt-0">1 Hour</h5>
-                      <!-- <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
-                      <h6 class="text-primary menu-price">RM 70</h6>
-                    </div>
-                  </div>
-
-
                 </div>
-                <div class="col-md-6 site-animate">
-                  <div class="media menu-item">
-                    <img class="mr-3" src="images/info_1.jpg" class="img-fluid" alt="Free Template by colorlib.com">
-                    <div class="media-body">
-                      <h5 class="mt-0">Hour an a Half</h5>
-                      <p>Including Streching</p>
-                      <h6 class="text-primary menu-price">RM 100</h6>
-                    </div>
-                  </div>
-
-                </div>
+                @endforeach
               </div>
             </div>
             <div class="tab-pane fade" id="pills-Bekam" role="tabpanel" aria-labelledby="pills-Bekam-tab">
@@ -394,38 +374,15 @@
             </div>
           </div>
         </div>
-
+        @foreach ($treatments as $treatment)
         <div class="col-md-4 site-animate">
-          <a href="images/service_1.jpg" class="site-thumbnail image-popup">
-            <img src="images/service_1.jpg" alt="Free Template by colorlib.com" class="img-fluid">
-          </a>
-        </div>
-        <div class="col-md-4 site-animate">
-          <a href="images/service_2.jpg" class="site-thumbnail image-popup">
-            <img src="images/service_2.jpg" alt="Free Template by colorlib.com" class="img-fluid">
-          </a>
-        </div>
-        <div class="col-md-4 site-animate">
-          <a href="images/service_3.jpg" class="site-thumbnail image-popup">
-            <img src="images/service_3.jpg" alt="Free Template by colorlib.com" class="img-fluid">
+          <a href="/{{$treatment->photo_path}}" class="site-thumbnail image-popup">
+            <img src="/{{$treatment->photo_path}}" alt="Free Template by colorlib.com" class="img-fluid">
           </a>
         </div>
 
-        <div class="col-md-4 site-animate">
-          <a href="images/rehab_2.jpg" class="site-thumbnail image-popup">
-            <img src="images/rehab_2.jpg" alt="Free Template by colorlib.com" class="img-fluid">
-          </a>
-        </div>
-        <div class="col-md-4 site-animate">
-          <a href="images/service_4.jpg" class="site-thumbnail image-popup">
-            <img src="images/service_4.jpg" alt="Free Template by colorlib.com" class="img-fluid">
-          </a>
-        </div>
-        <div class="col-md-4 site-animate">
-          <a href="images/rehab_1.jpg" class="site-thumbnail image-popup">
-            <img src="images/rehab_1.jpg" alt="Free Template by colorlib.com" class="img-fluid">
-          </a>
-        </div>
+        @endforeach
+       
 
       </div>
     </div>

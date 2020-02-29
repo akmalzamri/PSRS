@@ -104,6 +104,8 @@ class UserController extends Controller
         // if cart is empty then this the first product
         if(!$cart) {
  
+          
+
             $cart = [
                     $treatments_id => [
                         "name" => $treatment->treatmentname,
@@ -115,7 +117,7 @@ class UserController extends Controller
  
             session()->put('cart', $cart);
  
-            return redirect()->back()->with('status', 'Product added to cart successfully!');
+            return redirect()->back()->with('status', 'Treatment added to cart successfully!');
         }
  
         // if cart not empty then check if this product exist then increment quantity
@@ -125,7 +127,7 @@ class UserController extends Controller
  
             session()->put('cart', $cart);
  
-            return redirect()->back()->with('status', 'Product added to cart successfully!');
+            return redirect()->back()->with('status', 'Treatment added to cart successfully!');
  
         }
  
@@ -139,7 +141,7 @@ class UserController extends Controller
  
         session()->put('cart', $cart);
  
-        return redirect()->back()->with('status', 'Product added to cart successfully!');
+        return redirect()->back()->with('status', 'Treatment added to cart successfully!');
 
     }
 
@@ -162,7 +164,7 @@ class UserController extends Controller
                 session()->put('cart', $cart);
             }
 
-            session()->flash('status', 'Product removed successfully');
+            session()->flash('status', 'Treatment removed successfully');
         }
     }
 
