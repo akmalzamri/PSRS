@@ -8,7 +8,13 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-            <h4>My Comming Bookings</h4>
+            <h4>My Comming Bookings</h4> <br>
+            Cancellation Remark <br>
+
+            Any Cancelllation booking must be made 2 days before the booking date. <br>
+                      
+       
+            <br>
             <div class="table-responsive">
                 <table class="table">
                     <thead class=" text-primary">

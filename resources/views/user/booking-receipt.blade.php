@@ -46,20 +46,21 @@
             <table class="order-rable">
               <tr>
                 <td>Street</td>
-                <td>: No. 9, JLN Impian Makmur</td>
-              </tr>
-              <tr>
-                <td>City</td>
-                <td>: Kajang</td>
-              </tr>
-              <tr>
-                <td>Country</td>
-                <td>: Malaysia</td>
+                <td>: {{ Auth::user()->address }}</td>
               </tr>
               <tr>
                 <td>Postcode</td>
-                <td>: 43000</td>
+                <td>: {{ Auth::user()->zipcode }} </td>
               </tr>
+              <tr>
+                <td>City</td>
+                <td>: {{ Auth::user()->city }}</td>
+              </tr>
+              <tr>
+                <td>Country</td>
+                <td>: {{ Auth::user()->country }}</td>
+              </tr>
+             
             </table>
           </div>
         </div>

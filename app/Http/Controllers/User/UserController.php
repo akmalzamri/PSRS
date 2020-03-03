@@ -147,8 +147,9 @@ class UserController extends Controller
 
     public function cart()
     {
-       
-        return view('user/booking-step2');
+        
+              
+        return view('user/booking-cart');
     }
 
     public function remove(Request $request)
