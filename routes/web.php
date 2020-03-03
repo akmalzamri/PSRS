@@ -16,7 +16,7 @@ Auth::routes(['verify' => true]);
     Route::get('cart', 'User\UserController@cart');
     Route::delete('remove-from-cart', 'User\UserController@remove');
     Route::get('/booking3', 'User\UserController@bookingstep3')->name('user/booking-step3');
-    Route::get('/booking4', 'User\UserController@bookingstep4')->name('user/booking-step4');
+    Route::post('/booking4', 'User\UserController@bookingstep4')->name('user/booking-step4');
     Route::get('/receipt', 'User\UserController@bookingreceipt')->name('user/booking-receipt');
     Route::get('/userprofile', 'User\UserController@userprofile')->name('user/userprofile')->middleware('verified');
     Route::get('/userprofile-update', 'User\UserController@updateprofile')->name('user/userprofile-update');

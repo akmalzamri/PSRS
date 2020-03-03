@@ -148,6 +148,7 @@ class UserController extends Controller
     public function cart()
     {
         
+       
               
         return view('user/booking-cart');
     }
@@ -175,10 +176,18 @@ class UserController extends Controller
     {
         return view('user/booking-step3');
     }
-    public function bookingstep4()
+
+
+    public function bookingstep4(Request $request)
     {
-        return view('user/booking-step4');
+        
+        $request->session()->put('date',$request->input('date'));
+
+ 
+        
+        return view('user/booking-step4')->with('date',$request->session()->get('date'));
     }
+
 
     public function bookingreceipt()
     {

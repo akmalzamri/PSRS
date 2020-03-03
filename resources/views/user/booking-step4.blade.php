@@ -7,11 +7,23 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
+
+         
         
-             <!--================Order Details Area =================-->
+   <!--================Order Details Area =================-->
   <section class="order_details section-margin--small">
     <div class="container"> 
       <div class="order_details_table">
+
+        <div class="Contact_Infoemation">
+          <h4>Your Contact Information</h4>
+          Name: {{ Auth::user()->name }} <br>
+          Contact: {{ Auth::user()->contact }} <br> <br>
+          Location: {{ Auth::user()->address }},  {{ Auth::user()->zipcode }}  {{ Auth::user()->city }}, {{ Auth::user()->state }},  {{ Auth::user()->country }}<br>
+          Date:  {{$date}}  <br> 
+          Time:
+        </div> <br>
+
         <h4>Order Summary</h4>
         <div class="table-responsive">
           <table class="table">
@@ -67,12 +79,7 @@
         </div>
       </div>
 
-      <div class="Contact_Infoemation">
-        <h4>Your Contact Information</h4>
-        Name: {{ Auth::user()->name }} <br>
-        Email: {{ Auth::user()->email }} <br>
-        Contact: {{ Auth::user()->contact }}
-      </div>
+     
 
       <br>
       <br>

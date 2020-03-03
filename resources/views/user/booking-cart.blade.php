@@ -9,12 +9,14 @@
         <div class="card">
           <div class="card-header">
             <h4>Check your cart and select Time and Date for your session.</h4>
+            <form class="" action={{URL::to('/booking4')}} method="post">
+                {{ csrf_field() }}
             <table id="cart" class="table table-hover table-condensed">
                 <thead>
                 <tr>
                     <th style="width:50%">Date:                
                         <div class="form-group">
-                            <input type="date" class="form-control">
+                            <input type="date"  name="date" value="" class="form-control">
                         </div>
                     </th> <br>
                     <th style="width:10%"></th>
@@ -23,14 +25,17 @@
                 <tbody>   
                     <tr>
                         <th style="width:50%">Time:          
-                            <div class="form-group">    
-                                <select name="time" class="form-control">
-                                        <option value="" disabled></option>
-                                        <option value="9.00">9.00 am</option>
-                                        <option value="12.00">12.00 pm</option>
-                                        <option value="3.00">3.00 pm</option>
-                                        <option value="6.00">6.00 pm</option>
-                                </select>
+                            <div class="form-group">  
+                                 <select name="time" class="form-control">
+                                            <option></option>
+                                            <option name="time" value="10:00">10:00 am</option>
+                                            <option name="time" value="12:00">12:00 pm</option>
+                                            <option name="time" value="15:00">15:00 pm</option>
+                                            <option name="time" value="18:00">18:00 pm</option>
+                                        </select>  
+                                
+                                    
+                                    
                             </div>
                         </th>
                     </tr>
@@ -48,14 +53,9 @@
       <div class="card">
         <div class="card-header">
             <div>
-                <h4>Cart</h4>
-                Name: {{ Auth::user()->name }} <br>
-                Contact: {{ Auth::user()->contact }} <br> <br>
-                Location: {{ Auth::user()->address }},  {{ Auth::user()->zipcode }}  {{ Auth::user()->city }}, {{ Auth::user()->state }},  {{ Auth::user()->country }}<br>
-           
-                    Date: <br> 
+                <h4>Cart</h4> <br>
+              
                 
-                    Time: <br> 
 
            
                 <table id="cart" class="table table-hover table-condensed">
@@ -114,7 +114,9 @@
                         <td></td>
                         <td ></td>
                         <td></td>
-                        <td><a href="/booking4" class="btn btn-warning"><i class="fa fa-angle-right"></i> Make Payment </a></td>
+                      
+                        <td><button type="submit" name="button" class="btn btn-warning"><i class="fa fa-angle-right"></i> Make Payment</button></td>
+                    </form>
                     </tr>
                 </tfoot>
             </table> 
