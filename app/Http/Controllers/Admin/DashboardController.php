@@ -171,6 +171,7 @@ class DashboardController extends Controller
         $treatments = new treatments();
         $treatments->treatmentname = request('treatmentname');
         $treatments->treatmentprice = request('treatmentprice');
+        $treatments->treatmentduration = request('treatmentduration');
         $treatments->treatmentdescription = request('treatmentdescription');
 
         if($request->has('photo')){
@@ -200,6 +201,7 @@ class DashboardController extends Controller
         $treatments = treatments::find($treatments_id);
         $treatments->treatmentname = $request->input('treatmentname');
         $treatments->treatmentprice = $request->input('treatmentprice');
+        $treatments->treatmentduration = $request->input('treatmentduration');
         $treatments->treatmentdescription = $request->input('treatmentdescription');
         if($request->has('photo')){
 

@@ -37,6 +37,12 @@ Edit Treatment
                                         <input type="text" name="treatmentprice" class="form-control" value="{{ $treatments->treatmentprice }}">
                                     </div>
                                 </div>
+                                <div class="col-md-3 px-1">
+                                    <div class="form-group">
+                                        <label>Duration (Min)</label>
+                                        <input type="text" name="treatmentduration" class="form-control" value="{{ $treatments->treatmentduration }}">
+                                    </div>
+                                </div>
     
                             </div>
     

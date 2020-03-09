@@ -18,8 +18,7 @@ class CreateTreatmentsTable extends Migration
             $table->string('treatmentname')->nullable();
             $table->double('treatmentprice')->nullable();
             $table->string('treatmentdescription')->nullable();
-            $table->string('booking_id')->nullable();
-            $table->string('therapist_id')->nullable();
+            $table->double('treatmentduration')->nullable();
             $table->timestamps();
         });
     }

@@ -73,6 +73,7 @@ Enquiries Side
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
                     <p class="text-center">Are You Sure Want To Delete ?</p>
+                    
                 </div>
                 <div class="modal-footer">
                     <center>

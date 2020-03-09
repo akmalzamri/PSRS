@@ -20,7 +20,8 @@
         <div class="latest_product_inner">
  
           <div class="row">
-            @foreach ($treatments as $row) <div class="col-lg-4 col-md-6">
+            @foreach ($treatments as $row) 
+            <div class="col-lg-4 col-md-6">
               <div class="single-product">
                 <div class="product-img">
                   <img
@@ -29,8 +30,8 @@
                     alt=""
                   />
                   <div class="p_icon">
-                    <a href="javascript:;"  data-toggle="modal" onclick="deleteData()" 
-                    data-target="#DeleteModal">
+                    <a href="#" >
+
                       <i class="ti-eye"></i>
                      
                     </a>
@@ -40,13 +41,18 @@
                   </div>
                 </div>
                 <div class="product-btm">
-                  <a href="#" class="d-block">
-                    <h4>{{ $row->treatmentname }}</h4>
-                  </a>
+                 
+                    <h4 class="d-block">{{ $row->treatmentname }}</h4>
+                  
+                  <div class="mt-3">
+                    <p>{{ $row->treatmentduration }} Minutes</p>
+                     
+                  </div>
                   <div class="mt-3">
                     <span class="mr-4">RM {{ $row->treatmentprice }}</span>
                      
                   </div>
+                 
                 </div>
               </div>
             </div>
@@ -59,21 +65,6 @@
           </div>
 <!--================End Category Product Area =================-->
 
-<div id="DeleteModal" class="modal fade " role="dialog">
-  <div class="modal-dialog ">
-      <!-- Modal content-->
-      <form action="" id="deleteForm" method="post">
-          <div class="modal-content">
-              <div class="modal-header ">
-        
-              </div>
-              <div class="table-responsive">
-            
-                
-              
-              </div>
-          </div>
-      </form>
-  </div>
-</div>
+
+
 @endsection

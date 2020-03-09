@@ -35,6 +35,7 @@ Treatments Side
                             <th> ID </th>
                             <th> Name</th>
                             <th> Price (RM) </th>
+                            <th> Duration (Minutes) </th>
                             <th> Description </th>
                             <th> Image </th>
                             <th> Action </th>
@@ -48,6 +49,7 @@ Treatments Side
                                 <td> {{ $row->treatments_id }}</td>
                                 <td> {{ $row->treatmentname }}</td>        
                                 <td> {{ $row->treatmentprice }}</td>
+                                <td> {{ $row->treatmentduration }}</td>
                                 <td> {{ $row->treatmentdescription }}</td>
                                 <td>   <img src="/{{$row->photo_path}}" alt="" style="width: 100px; height: 100px; "> </td>
                                 <td>

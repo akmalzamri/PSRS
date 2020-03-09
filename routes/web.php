@@ -66,3 +66,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/therapistprofile-update', 'Therapist\TherapistController@therapistupdateprofile')->name('therapist/therapist-profile-update');
     Route::post('/therapistprofile-update', 'Therapist\TherapistController@therapistprofileupdate')->name('therapist/therapist-profile');
     Route::get('/therapistmanagebooking', 'Therapist\TherapistController@managebooking')->name('therapist/therapist-managebookings');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
