@@ -21,7 +21,7 @@
           Contact: {{ Auth::user()->contact }} <br> <br>
           Location: {{ Auth::user()->address }},  {{ Auth::user()->zipcode }}  {{ Auth::user()->city }}, {{ Auth::user()->state }},  {{ Auth::user()->country }}<br>
           Date:  {{$date}}  <br> 
-          Time:
+          Time: {{$time}} 
         </div> <br>
 
         <h4>Order Summary</h4>
@@ -86,6 +86,8 @@
       <div class="Payment Method">
         <h4>Choose Payment Method</h4>
 
+        <p>*Any Cancellation booking must be made 2 days before the booking date.</p> <br>
+               
 
         <div class="col-md-12 text-left">
 

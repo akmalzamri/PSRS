@@ -180,12 +180,13 @@ class UserController extends Controller
 
     public function bookingstep4(Request $request)
     {
+    
         
         $request->session()->put('date',$request->input('date'));
-
+        $request->session()->put('time',$request->input('time'));
  
         
-        return view('user/booking-step4')->with('date',$request->session()->get('date'));
+        return view('user/booking-step4')->with('date',$request->session()->get('date'))->with('time',$request->session()->get('time'));
     }
 
 

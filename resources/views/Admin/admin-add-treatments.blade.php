@@ -34,7 +34,7 @@ Dashboard
                             </div>
                             <div class="col-md-3 px-1">
                                 <div class="form-group">
-                                    <label>Duration (Min) </label>
+                                    <label>Hour </label>
                                     <input type="text" name="treatmentduration" class="form-control" value="">
                                 </div>
                             </div>

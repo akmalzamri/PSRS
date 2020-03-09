@@ -43,9 +43,13 @@
                 <div class="product-btm">
                  
                     <h4 class="d-block">{{ $row->treatmentname }}</h4>
+                    <div class="mt-3">
+                      <p>({{ $row->treatmentdescription }})</p>
+                       
+                    </div>
                   
                   <div class="mt-3">
-                    <p>{{ $row->treatmentduration }} Minutes</p>
+                    <p>{{ $row->treatmentduration }} Hour</p>
                      
                   </div>
                   <div class="mt-3">

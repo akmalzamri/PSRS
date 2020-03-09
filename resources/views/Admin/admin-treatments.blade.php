@@ -35,7 +35,7 @@ Treatments Side
                             <th> ID </th>
                             <th> Name</th>
                             <th> Price (RM) </th>
-                            <th> Duration (Minutes) </th>
+                            <th> Hour </th>
                             <th> Description </th>
                             <th> Image </th>
                             <th> Action </th>

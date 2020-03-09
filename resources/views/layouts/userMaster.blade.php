@@ -55,13 +55,7 @@
                       <li class="nav-item">
                         <a class="nav-link" href="/home">Book Treatment</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/cart">Booked List</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/booking4">Checkout Booked</a>
-                      </li>
-                      
+                                           
                     </ul>
                   </li>
                   <li class="nav-item">

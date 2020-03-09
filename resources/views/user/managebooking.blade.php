@@ -11,7 +11,7 @@
             <h4>My Comming Bookings</h4> <br>
             Cancellation Remark <br>
 
-            Any Cancelllation booking must be made 2 days before the booking date. <br>
+            Any Cancellation booking must be made 2 days before the booking date. <br>
                       
        
             <br>
