@@ -18,7 +18,7 @@
 
             @if($managebookings->isEmpty())
                 
-            <p> There is no Comming Treatments</p>
+            <p style="color:red"> *There is No Comming Treatments</p>
             
             @else
             <div class="table-responsive">

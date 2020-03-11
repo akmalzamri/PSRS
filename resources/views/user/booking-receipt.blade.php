@@ -14,7 +14,8 @@
     <div class="container">
         <br>
       <br>
-      <p class="text-center billing-alert">Thank you. Your treatment booking has been received.</p>
+      <p class="text-center billing-alert">Thank you. Your treatment booking has been received!</p> <br>
+      <p class="text-center billing-alert"> Any Cancellation booking must be made 2 days before the booking date.</p>
       <br>
       <br>
       <br>
@@ -26,17 +27,14 @@
             <table class="order-rable">
               <tr>
                 <td>Booking number</td>
-                <td>: 60235</td>
+                <td>: </td>
               </tr>
               <tr>
                 <td>Date</td>
-                <td>: Oct 03, 2020</td>
-              </tr>
+                <td>: ({{ date('d-m-Y') }})</td>
              
-              <tr>
-                <td>Payment method</td>
-                <td>: Cash On Delivery</td>
               </tr>
+            
             </table>
           </div>
         </div>
@@ -109,11 +107,7 @@
       
             </tbody>
             <td>
-              <div class="checkout_btn_inner d-flex align-items-right">
-                 
-                  <a href="#" class="btn btn-warning">Save as PDF</a>
-                 
-              </div>
+             
             </td>
         </table>
          

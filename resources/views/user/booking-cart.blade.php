@@ -74,7 +74,7 @@
 
                 <?php $total = 0 ?>
 
-                @if(session('cart'))
+                @if(count (session('cart')) > 0)
                     @foreach(session('cart') as $treatments_id => $details)
 
                     <?php $total += $details['price']?>
@@ -97,8 +97,7 @@
                                 <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $treatments_id }}"><i class="fa fa-trash-o"></i></button>
                             </td>    
                         </tr>
-                    @endforeach
-                @endif
+                    
                 <td></td>
                 <td></td>
                 <td></td>
@@ -119,7 +118,13 @@
                     </form>
                     </tr>
                 </tfoot>
+                @endforeach
+                    @else
+
+                    <p style="color:red">*Please Choose Any Treatment Before Make Any Booking</p>
+                @endif
             </table> 
+            
         </div>
       </div>
     </div>

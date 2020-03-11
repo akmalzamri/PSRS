@@ -205,7 +205,7 @@
                         <td>     </td>
                         <td>     </td>
                         <td>
-                            <h5>{{$date}}  {{$time}} </h5>
+                            <h5>{{ date('d-m-Y H:i:s') }}  </h5>
                         </td>
                     </tr>
                     <tr>

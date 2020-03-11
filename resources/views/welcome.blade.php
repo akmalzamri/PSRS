@@ -226,7 +226,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center mb-5 site-animate">
-          <h2 class="display-4">Treatmentss</h2>
+          <h2 class="display-4">Treatments</h2>
           <div class="row justify-content-center">
             <div class="col-md-7">
               <p class="lead">Register with us before you make any booking!</p>

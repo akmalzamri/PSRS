@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\User;
 use App\Bookings;
 use App\Enquiries;
+Use \Carbon\Carbon;
 use App\Treatments;
 use Illuminate\Http\Request;
 use App\Mail\ConfirmBookingMail;
@@ -215,12 +216,15 @@ class UserController extends Controller
 
     public function bookingreceipt()
     {
+
+        $today = new Carbon();
+
         return view('user/booking-receipt');
     }
 
     public function managebooking()
     {
-
+        // $users = User::find(Auth::user()->id);
         $managebookings = \App\Bookings::paginate(10);
 
 
