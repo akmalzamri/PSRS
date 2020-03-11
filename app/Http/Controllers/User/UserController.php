@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\User;
+use App\Bookings;
 use App\Enquiries;
 use App\Treatments;
+use Illuminate\Http\Request;
+use App\Mail\ConfirmBookingMail;
+use App\Mail\ReplyEnquiriesMail;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -84,6 +88,8 @@ class UserController extends Controller
         $enquiries->message = request('message');
 
         $enquiries->save();
+
+       
 
         return redirect('/enquiries')->with('status', 'Your Enquiries has been submitted!');
     }
@@ -189,6 +195,23 @@ class UserController extends Controller
         return view('user/booking-step4')->with('date',$request->session()->get('date'))->with('time',$request->session()->get('time'));
     }
 
+    public function storebooking(Request $request)
+    // bole (request $request, $treatments_id)
+    {
+
+        $bookings = new bookings();
+        $bookings->user_id = Auth::user()->id;
+        // $bookings->treatments_id = $request->session()->get('cart');
+        $bookings->booking_date = $request->session()->get('date');
+        $bookings->booking_time =  $request->session()->get('time');
+
+        $bookings->save();
+
+        Mail::to('test@test.com')->send(new ConfirmBookingMail($bookings));
+
+        return redirect('/receipt')->with('status', 'Your Booking has been accepted!');
+    }
+
 
     public function bookingreceipt()
     {
@@ -197,6 +220,19 @@ class UserController extends Controller
 
     public function managebooking()
     {
-        return view('user/managebooking');
+
+        $managebookings = \App\Bookings::paginate(10);
+
+
+        return view('user/managebooking')->with('managebookings', $managebookings);
+    }
+
+    public function removebooking($id)
+    {
+        $bookings = Bookings::findOrFail($id);
+        $bookings->delete();
+
+        
+        return redirect('/managebooking')->with('status', 'Your Booking is Deleted');
     }
 }

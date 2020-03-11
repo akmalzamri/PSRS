@@ -460,10 +460,9 @@
               <div class="site-footer-widget mb-4">
                 <h2 class="site-heading-2">PSRS</h2>
                 <ul class="list-unstyled">
-                  <li><a href="#" class="py-2 d-block">About Us</a></li>
-                  <li><a href="#" class="py-2 d-block">Chefs</a></li>
-                  <li><a href="#" class="py-2 d-block">Events</a></li>
-                  <li><a href="#" class="py-2 d-block">Contact</a></li>
+                  <li><a href="#section-about" class="py-2 d-block">About Us</a></li>
+             
+                  <li><a href="#section-treatments" class="py-2 d-block">Treatments</a></li>
                 </ul>
               </div>
             </div>
@@ -487,7 +486,7 @@
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script>
               document.write(new Date().getFullYear());
-            </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            </script> All rights reserved | PSRS
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
         </div>
@@ -511,13 +510,13 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <small>CLOSE </small><span aria-hidden="true">&times;</span>
               </button>
-              <h4 class="mb-4">Please select account type:</h4>
-              <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Customer</a></li>
-              <li class="nav-item"><a href="therapist-register" class="nav-link">Therapist</a></li>
-             
+              <h4 class="mb-4">Please select account type:</h4><br>
+              <ul class="nav site-tab-nav nav-pills mb-5" id="pills-tab" role="tablist">
+                <li class="nav-item site-animate"><a class="nav-link active" href="{{ route('register') }}" aria-selected="true">Customer</a></li>
+                <li class="nav-item site-animate"><a class="nav-link active" href="therapist-register" aria-selected="true">Therapist</a></li>
+              </ul>
             </div>
           </div>
-
         </div>
       </div>
     </div>

@@ -17,11 +17,14 @@
 
         <div class="Contact_Infoemation">
           <h4>Your Contact Information</h4>
+          <form action="confirmbooking" method="POST" >
+            {{ csrf_field() }}
           Name: {{ Auth::user()->name }} <br>
           Contact: {{ Auth::user()->contact }} <br> <br>
           Location: {{ Auth::user()->address }},  {{ Auth::user()->zipcode }}  {{ Auth::user()->city }}, {{ Auth::user()->state }},  {{ Auth::user()->country }}<br>
           Date:  {{$date}}  <br> 
-          Time: {{$time}} 
+          Time: {{$time}}
+   
         </div> <br>
 
         <h4>Order Summary</h4>
@@ -67,8 +70,7 @@
         
                             <h5>RM {{ $total }}</h5>
         
-                            @endforeach
-                          @endif</th></h5>
+                           </th></h5>
                     </td>
                 </tr>
                
@@ -108,8 +110,10 @@
                   <div class="media menu-item">
                    
                     <div class="media-body">
-                      <a href="/receipt" class="btn btn-success">Make a Payment</a>
+                      <input type="submit" class="btn btn-warning " value="Make a Payment">
+                      
                     </div>
+                  </form>
                   </div>
                 </div>            
               </div>
@@ -143,39 +147,8 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane fade" id="pills-Rehab" role="tabpanel" aria-labelledby="pills-Rehab-tab">
-              <div class="row">
-                <div class="col-md-6 site-animate">
-
-                  <div class="media menu-item">
-              
-                    <div class="media-body">
-                      <h5 class="mt-0">1 Session</h5>
-                      <p>45 minutes max.</p>
-                      <h6 class="text-primary menu-price">RM 50</h6>
-                    </div>
-                  </div>
-
-
-                </div>
-                <div class="col-md-6 site-animate">
-
-                  <div class="media menu-item">
-                 
-                    <div class="media-body">
-                      <h5 class="mt-0">2 Session</h5>
-                      <p>30 minutes max.</p>
-                      <h6 class="text-primary menu-price">RM 25</h6>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
           </div>
-
         </div>
-
       </div>
     </div>
   </section>
@@ -232,7 +205,7 @@
                         <td>     </td>
                         <td>     </td>
                         <td>
-                            <h5>03 Feb 2020 21:30:55</h5>
+                            <h5>{{$date}}  {{$time}} </h5>
                         </td>
                     </tr>
                     <tr>
@@ -247,7 +220,11 @@
                       <td>     </td>
                       <td>     </td>
                       <td>
-                          <h5>RM 100.00</h5>
+                          
+                          <h5>RM {{ $total }}</h5>
+        
+                          @endforeach
+                        @endif
                       </td>
                   </tr>
                   

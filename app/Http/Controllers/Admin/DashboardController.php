@@ -222,6 +222,7 @@ class DashboardController extends Controller
         $treatments = Treatments::findOrFail($treatments_id);
         $treatments->delete();
 
+        
         return redirect('/admin-treatments')->with('status', 'Your Enquiries is Deleted');
     }
 

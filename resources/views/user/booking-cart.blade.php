@@ -115,7 +115,7 @@
                         <td ></td>
                         <td></td>
                       
-                        <td><button type="submit" name="button" class="btn btn-warning"><i class="fa fa-angle-right"></i> Make Payment</button></td>
+                        <td><button type="submit" name="button" class="btn btn-warning">Proceed <i class="fa fa-angle-right"></i></button></td>
                     </form>
                     </tr>
                 </tfoot>
