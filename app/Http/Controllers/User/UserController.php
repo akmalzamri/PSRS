@@ -224,9 +224,9 @@ class UserController extends Controller
 
     public function managebooking()
     {
-        // $users = User::find(Auth::user()->id);
-        $managebookings = \App\Bookings::paginate(10);
-
+        
+        $managebookings = \App\Bookings::where('user_id', Auth::user()->id)->get();
+        // $research = DB::table('researchs')->where('user_id', Auth::id())->get();
 
         return view('user/managebooking')->with('managebookings', $managebookings);
     }
