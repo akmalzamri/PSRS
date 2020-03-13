@@ -12,6 +12,7 @@ Auth::routes(['verify' => true]);
 // USER ROUTE
 
     Route::get('/home', 'HomeController@index')->name('user/home')->middleware('auth');
+    Route::get('view-treatment/{id}', 'User\UserController@viewtreatment');
     Route::get('add-to-cart/{id}', 'User\UserController@addtocart');
     Route::get('cart', 'User\UserController@cart');
     Route::delete('remove-from-cart', 'User\UserController@remove');

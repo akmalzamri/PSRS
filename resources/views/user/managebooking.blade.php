@@ -24,11 +24,11 @@
             <div class="table-responsive">
                 <table class="table">
                     <thead class=" text-primary">
-                        <th> Booking ID </th>
+                        
                         <th> Booking Date</th>
                         <th> Booking Time</th>
-                        <th> Treatments ID </th>
-                        <th> Status </th>
+                        <th> Treatments  </th>
+                        
                         <th> Requires Action </th>
                  
                     </thead>
@@ -36,12 +36,10 @@
                         @foreach ($managebookings as $row)
                         <tr>
                            
-
-                            <td>  {{ $row->id }} </td>
                             <td>  {{ $row->booking_date }}</td>        
                             <td>  {{ $row->booking_time }} </td>
                             <td>  {{ $row->treatments_id }} </td>
-                            <td>  Pending </td>
+                           
                             <td>
                                
                                 <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$row->id}})" 
@@ -69,6 +67,7 @@
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
                     <p class="text-center">Are You Sure Want To Delete ?</p>
+                
                 </div>
                 <div class="modal-footer">
                     <center>

@@ -96,6 +96,16 @@ class UserController extends Controller
     }
 
     
+    public function viewtreatment()
+    {
+
+
+
+
+        return view('/home');
+    }
+
+
     public function addtocart($treatments_id)
     {
         $treatment = Treatments::find($treatments_id);
@@ -202,7 +212,7 @@ class UserController extends Controller
 
         $bookings = new bookings();
         $bookings->user_id = Auth::user()->id;
-        // $bookings->treatments_id = $request->session()->get('cart');
+        // $bookings->treatments_id = $request->session()->get('name');
         $bookings->booking_date = $request->session()->get('date');
         $bookings->booking_time =  $request->session()->get('time');
 
@@ -214,19 +224,19 @@ class UserController extends Controller
     }
 
 
-    public function bookingreceipt()
+    public function bookingreceipt(Request $request)
     {
 
-        $today = new Carbon();
+        $managebookings = \App\Bookings::where('user_id', Auth::user()->id)->get();
 
-        return view('user/booking-receipt');
+        return view('user/booking-receipt')->with('date',$request->session()->get('date'))->with('time',$request->session()->get('time'))->with('managebookings', $managebookings);
     }
 
     public function managebooking()
     {
         
         $managebookings = \App\Bookings::where('user_id', Auth::user()->id)->get();
-        // $research = DB::table('researchs')->where('user_id', Auth::id())->get();
+       
 
         return view('user/managebooking')->with('managebookings', $managebookings);
     }

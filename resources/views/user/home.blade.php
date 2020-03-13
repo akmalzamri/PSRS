@@ -49,7 +49,7 @@
                     </div>
                   
                   <div class="mt-3">
-                    <p>{{ $row->treatmentduration }} Hour</p>
+                    <p>{{ $row->treatmentduration }} Hour per Session</p>
                      
                   </div>
                   <div class="mt-3">
