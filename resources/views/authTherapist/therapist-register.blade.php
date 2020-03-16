@@ -16,7 +16,7 @@
 
 
             <div class="wrap-input100 validate-input m-b-26">
-                <label for="name" class="label-input100">{{ __('Name') }}</label>
+                <label for="name" class="label-input100">Full Name</label>
 
                     <input id="name" type="text" class="input100 @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 

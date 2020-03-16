@@ -28,7 +28,7 @@ My Profile
                         <div class="row">
                             <div class="col-md-5 pr-1">
                                 <div class="form-group">
-                                    <label>Name</label>
+                                    <label>Full Name</label>
                                     <input type="text" class="form-control" placeholder="Not Update yet" value="{{ $users->name }}" disabled>
                                 </div>
                             </div>
@@ -110,7 +110,9 @@ My Profile
                                    
                                    
                                 </div>
-                                <label for="" class="col-lg-12">Document Photo</label>
+                                <label for="" class="col-lg-12">Related Document (Highest Qualification)</label>
+                                
+                               
                                 <div class="col-lg-12" style="display: flex; flex-direction: row; justify-content: space-between">
                                 <img src="/{{$users->document_path}}" alt="" style="width: 80px; height: 80px; ">
                             </div>

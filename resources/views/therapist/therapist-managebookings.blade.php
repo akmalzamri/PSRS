@@ -13,18 +13,22 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> Customer Bookings</h4>
+                <h4 class="card-title">Customer Bookings</h4>
               </div>
               <div class="card-body">
-                @if($bookings->isEmpty())
+               
+                @if(Auth::user()->status == '0')
                 
-                <p> There is no enquiries</p>
+                <p style="color:red">(Your Account need to be approve by admin. Thank you)</p>
                 
+
+                @elseif($bookings->isEmpty())
+                <p> There is no Customer Booking</p>
                 @else
                 <div class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
-                            <th>ID</th>
+                            <th>Booking ID</th>
                             <th> Customer Name </th>
                             <th>Date</th>
                             <th> Time </th>                            
@@ -34,7 +38,7 @@
                         <tbody>
                             @foreach ($bookings as $row)
                             <tr>
-                                <td> {{ $row->bookings_id }}</td>
+                                <td> {{ $row->id }}</td>
                                 <td> Akmal Zamri </td>   
                                 <td> {{ $row->booking_date }}</td>
                                 <td> {{ $row->booking_time }}</td>

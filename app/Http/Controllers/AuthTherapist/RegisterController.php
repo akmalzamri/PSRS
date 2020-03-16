@@ -55,6 +55,7 @@ class RegisterController extends Controller
         $therapist->email = request('email');
         $therapist->password = \Hash::make(Request()->password);
         $therapist->usertype = 1;
+        $therapist->status = 0;
       
         // kalau ada user_id save siap2
         // $therapist->user_id = request('user_id')

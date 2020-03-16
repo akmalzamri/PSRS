@@ -506,14 +506,14 @@
             <!-- <div class="col-lg-12">
               <div class="bg-image" style="background-image: url(images/reservation_1.jpg);"></div>
             </div> -->
-            <div class="col-lg-12 p-5">
+            <div class="col-lg-12 p-5" align="center">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <small>CLOSE </small><span aria-hidden="true">&times;</span>
               </button>
               <h4 class="mb-4">Please select account type:</h4><br>
               <ul class="nav site-tab-nav nav-pills mb-5" id="pills-tab" role="tablist">
-                <li class="nav-item site-animate"><a class="nav-link active" href="{{ route('register') }}" aria-selected="true">Customer</a></li>
-                <li class="nav-item site-animate"><a class="nav-link active" href="therapist-register" aria-selected="true">Therapist</a></li>
+                <li class="nav-item site-animate"><a class="nav-link active" href="{{ route('register') }}" aria-selected="true" >Customer</a></li>
+                <li class="nav-item site-animate"><a class="nav-link active" href="therapist-register" aria-selected="true" >Therapist</a></li>
               </ul>
             </div>
           </div>

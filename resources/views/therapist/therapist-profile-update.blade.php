@@ -28,7 +28,7 @@ My Profile
                             <div class="row">
                                 <div class="col-md-5 pr-1">
                                     <div class="form-group">
-                                        <label>Name</label>
+                                        <label>Full Name</label>
                                         <input type="text" class="form-control" name="name" placeholder="Name" value="{{ $users->name }}">
                                     </div>
                                 </div>
@@ -147,8 +147,9 @@ My Profile
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label for="" class="col-lg-12">Document Submit</label>
-
+                                    <label for="" class="col-lg-12">Related Document (Highest Qualification) </label>
+                                    <label class="col-lg-12" >(File extensions allowed: *.jpeg,*.jpg, *.png)</label>  <br> 
+                                    <label class="col-lg-12" >(Maximum file size 2MB.)</label>
                                     <div class="col-lg-12">
                                     </div>
     

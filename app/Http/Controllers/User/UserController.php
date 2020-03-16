@@ -98,10 +98,6 @@ class UserController extends Controller
     
     public function viewtreatment()
     {
-
-
-
-
         return view('/home');
     }
 
