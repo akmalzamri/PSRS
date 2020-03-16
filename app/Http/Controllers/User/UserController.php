@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
+use session;
 use App\User;
 use App\Bookings;
-use App\Enquiries;
 Use \Carbon\Carbon;
+use App\Enquiries;
 use App\Treatments;
 use Illuminate\Http\Request;
 use App\Mail\ConfirmBookingMail;
@@ -203,19 +204,29 @@ class UserController extends Controller
     }
 
     public function storebooking(Request $request)
-    // bole (request $request, $treatments_id)
+    
     {
+       
+
+        $cart = session()->get('cart');
+        // $total = 0;
+        // foreach ($cart as $data)
+        // {  
+
 
         $bookings = new bookings();
         $bookings->user_id = Auth::user()->id;
-        // $bookings->treatments_id = $request->session()->get('name');
         $bookings->booking_date = $request->session()->get('date');
         $bookings->booking_time =  $request->session()->get('time');
-
+        $bookings->total_amount = $request->session()->put('total');
+        // $bookings->total_amount = $data['total'];
+      
         $bookings->save();
 
+        // }
         Mail::to('test@test.com')->send(new ConfirmBookingMail($bookings));
 
+        $request->session()->forget('cart'); 
         return redirect('/receipt')->with('status', 'Your Booking has been accepted!');
     }
 
@@ -225,6 +236,7 @@ class UserController extends Controller
 
         $managebookings = \App\Bookings::where('user_id', Auth::user()->id)->get();
 
+        
         return view('user/booking-receipt')->with('date',$request->session()->get('date'))->with('time',$request->session()->get('time'))->with('managebookings', $managebookings);
     }
 
