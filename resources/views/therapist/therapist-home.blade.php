@@ -20,18 +20,18 @@
                   <table class="table">
                     <div class="col-lg-4">
                       <div class="card card-chart">
-                        <div class="card-header">
-                          <h4 class="card-title" align="center">Customer Booking</h4>
-                        </div>
+                        
                         <div class="card-body">
                           <div class="chart-area center">
                             @if(Auth::user()->status == '0')
                             
-                            <p style="color:red" align="center">(Nothing to show)</p>
-
+                            <p style="color:red" align="center">(Nothing to show)</p> <br>
+                            <p style="color:red" align="center">-Please Update Your Profile-</p>
 
                             @else 
-
+                            <div class="card-header">
+                              <h4 class="card-title" align="center">Customer Booking</h4>
+                            </div>
                             <h1 align="center"> {{ $bookings->total() }}</h1>
                           
                             @endif

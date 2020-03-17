@@ -13,7 +13,7 @@ Register User
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title"> Registered Customer </h4>
+                <h4 class="card-title"> Customer Bookings</h4>
                 
                 @if (session('status'))
                 <div class="alert alert-success" role="alert">
@@ -25,9 +25,9 @@ Register User
            
             <div class="card-body">
 
-                @if($users->isEmpty())
+                @if($bookings->isEmpty())
                 
-                <p> There is no customer</p>
+                <p> There is no customer booking</p>
                 
                 @else
 
@@ -35,32 +35,29 @@ Register User
                     <table class="table">
                         <thead class=" text-primary">
                            
-                            <th>Name</th>
-                            <th> Email </th>
-                         
+                            <th>Booking ID</th>
+                            <th> Customer Name </th>
+                            <th>Date</th>
+                            <th> Time </th>                            
+                            <th> Customer Address </th>
                             <th> Action </th>
 
                         </thead>
                         <tbody>
-                            @foreach ($users as $row)
+                            @foreach ($bookings as $row)
                             <tr>
                               
-                                <td> {{ $row->name }}</td>
-                                <td> {{ $row->email }}</td>
-                                {{-- <td> @if($row->usertype==0)
-                                    Customer
-                                    @elseif($row->usertype==1)
-                                    Therapist
-                                    @else
-                                    Admin
-                                    @endif
-                                </td> --}}
-                               
+                                <td> {{ $row->id }}</td>
+                                <td> </td>
+                                <td> {{ $row->booking_date }}</td>
+                                <td> {{ $row->booking_time }}</td>
+                              
+                                <td> </td>
                                 <td>
-                                <a href="admin-view-customer/{{ $row->id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                              
 
-                                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$row->id}})" 
-                                    data-target="#DeleteModal" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
+                                    {{-- <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$row->id}})" 
+                                    data-target="#DeleteModal" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a> --}}
                      
                                  
                                 </td>

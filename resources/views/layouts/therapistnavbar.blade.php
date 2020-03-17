@@ -46,12 +46,16 @@
               <p>My Profile</p>
             </a>
           </li>
+          @if(Auth::user()->status == '0')
+
+          @else 
           <li class="{{ 'therapistmanagebooking' == request()->path() ? 'active' :'' }} ">
             <a href="/therapistmanagebooking">
               <i class="now-ui-icons ui-1_calendar-60"></i>
               <p>Customer Booking</p>
             </a>
           </li>
+          @endif
         </ul>
       </div>
     </div>

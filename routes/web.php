@@ -41,8 +41,13 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::delete('/role-delete/{id}', 'Admin\DashboardController@registerdelete');
 
     Route::get('/register-therapist', 'Admin\DashboardController@registeredTherapist');
-    Route::get('/admin-view-therapist/{therapist_id}', 'Admin\DashboardController@adminviewtherapist');
-    Route::delete('/role-delete-therapist/{therapist_id}', 'Admin\DashboardController@therapistdelete');
+    Route::get('/admin-view-therapist/{id}', 'Admin\DashboardController@adminviewtherapist');
+    Route::delete('/role-delete-therapist/{id}', 'Admin\DashboardController@therapistdelete');
+
+    Route::get('/register-new-therapist', 'Admin\DashboardController@newTherapist');
+    Route::get('/admin-view-newtherapist/{id}', 'Admin\DashboardController@adminviewnewtherapist');
+    Route::put('/register-new-therapist-update/{id}', 'Admin\DashboardController@registerupdate');
+    Route::delete('/role-delete-newtherapist/{id}', 'Admin\DashboardController@therapistdelete');
 
     Route::get('/admin-enquiries', 'Admin\DashboardController@adminenquiries');
     Route::get('/admin-view-enquiries/{id}', 'Admin\DashboardController@adminviewenquiries');
@@ -57,6 +62,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin-edit-treatments/{treatments_id}', 'Admin\DashboardController@treatmentsedit'); 
     Route::put('/admin-update-treatments/{treatments_id}', 'Admin\DashboardController@treatmentsupdate');
     Route::delete('/role-delete-treatments/{treatments_id}', 'Admin\DashboardController@treatmentsdelete');
+
+    Route::get('/customerbooking', 'Admin\DashboardController@customerbooking');
 });
 
 

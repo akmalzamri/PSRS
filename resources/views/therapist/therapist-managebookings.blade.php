@@ -39,10 +39,10 @@
                             @foreach ($bookings as $row)
                             <tr>
                                 <td> {{ $row->id }}</td>
-                                <td> Akmal Zamri </td>   
+                                <td> Akmal Zamri (testing) </td>   
                                 <td> {{ $row->booking_date }}</td>
                                 <td> {{ $row->booking_time }}</td>
-                                <td>  No. 9, JLN Impian Makmur 4/1, Saujana Impian</td>                           
+                                <td>  No. 9, JLN Impian Makmur 4/1, Saujana Impian (Testing)</td>                           
                                             
                             </tr>
                             @endforeach

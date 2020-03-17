@@ -24,16 +24,16 @@ Register Therapist
 
                 @if($therapist->isEmpty())
                 
-                <p> There is no therapist</p>
+                <p> There is no Therapist</p>
                 
                 @else
                 <div class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
-                            <th>ID</th>
+                            
                             <th>Name</th>
                             <th> Email </th>
-                            <th> Usertype </th>
+                            
                             <th> Action </th>
                             <th> </th>
 
@@ -41,28 +41,28 @@ Register Therapist
                         <tbody>
                             @foreach ($therapist as $row)
                             <tr>
-                                <td> {{ $row->therapist_id }}</td>
+                               
                                 <td> {{ $row->name }}</td>
                                 <td> {{ $row->email }}</td>
-                                <td> @if($row->usertype==0)
+                                {{-- <td> @if($row->usertype==0)
                                     Therapist
                                     @elseif($row->usertype==1)
                                     Therapist
                                     @else
                                     Admin
                                     @endif
-                                </td>
+                                </td> --}}
                                 <td>
-                                    <a href="admin-view-therapist/{{ $row->therapist_id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                                    <a href="admin-view-therapist/{{ $row->id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
 
-                                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$row->therapist_id}})" data-target="#DeleteModal" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
+                                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$row->id}})" data-target="#DeleteModal" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                     @endif
-                    {{ $therapist->links() }} 
+                    {{-- {{ $therapist->links() }}  --}}
                 </div>
             </div>
         </div>
@@ -101,10 +101,10 @@ Register Therapist
 @section('scripts')
 
 <script type="text/javascript">
-    function deleteData(therapist_id) {
-        var therapist_id = therapist_id;
-        var url = "/role-delete-therapist/{therapist_id}";
-        url = url.replace('{therapist_id}', therapist_id);
+    function deleteData(id) {
+        var id = id;
+        var url = "/role-delete-therapist/{id}";
+        url = url.replace('{id}', id);
         $("#deleteForm").attr('action', url);
     }
 

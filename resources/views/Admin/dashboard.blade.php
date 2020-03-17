@@ -21,9 +21,9 @@ Dashboard
             <div class="content">
               <div class="row">
                 <div class="col-lg-4">
-                  <div class="card card-chart">
+                  <div class="card card-chart" align="center">
                     <div class="card-header">
-                      <h4 class="card-title">Registered Customer</h4>
+                      <h4 class="card-title" >Registered User</h4>
                     </div>
                     <div class="card-body">
                       <div class="chart-area">
@@ -38,13 +38,14 @@ Dashboard
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <div class="card card-chart">
+                  <div class="card card-chart" align="center">
                     <div class="card-header">
-                      <h4 class="card-title">Registered Therapist</h4>                     
+                      <h4 class="card-title">Treatment Amount</h4>
+                                      
                     </div>
                     <div class="card-body">
                       <div class="chart-area">
-                      <h1> {{ $therapist->total() }} </h1>
+                        <h1 > {{ $treatments->total() }} </h1>
                       </div>
                     </div>
                     <div class="card-footer">
@@ -55,13 +56,14 @@ Dashboard
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <div class="card card-chart">
+                  <div class="card card-chart" align="center">
                     <div class="card-header">
-                      <h4 class="card-title">Treatment Amount</h4>
+                      <h4 class="card-title">Enquiries</h4>    
                     </div>
                     <div class="card-body">
                       <div class="chart-area">
-                      <h1 > {{ $treatments->total() }} </h1>
+                        <h1> {{ $enquiries->total() }} </h1>
+                      
                       </div>
                     </div>
                     <div class="card-footer">

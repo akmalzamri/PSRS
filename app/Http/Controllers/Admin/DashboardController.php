@@ -10,6 +10,7 @@ use App\Mail\UpdateRoleMail;
 use Illuminate\Http\Request;
 use App\Mail\ReplyEnquiriesMail;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -22,17 +23,17 @@ class DashboardController extends Controller
     public function dashboardview()
     {
         $users = \App\User::paginate(5);
-        $therapist = \App\Therapist::paginate(5);
+        $enquiries = \App\Enquiries::paginate(5);
         $treatments = \App\Treatments::paginate(5);
 
-        return view('Admin.dashboard', compact('treatments', 'users', 'therapist'));
+        return view('Admin.dashboard', compact('treatments', 'users', 'enquiries'));
     }
 
     // User View
     public function registered()
     {
          
-        $users = \App\User::paginate(5);
+        $users = \App\User::where('usertype', '0')->get();
        
         
         return view('Admin.register')->with('users', $users);
@@ -51,17 +52,7 @@ class DashboardController extends Controller
         return view('Admin.register-edit')->with('users', $users);
     }
 
-    public function registerupdate(Request $request, $id)
-    {
-        $users = User::find($id);
-        $users->name = $request->input('username');
-        $users->usertype = $request->input('usertype');
-        $users->update();
-
-        // Mail::to('test@test.com')->send(new UpdateRoleMail($users));
-
-        return redirect('/role-register')->with('status', 'Your Data is Updated');
-    }
+    
 
     public function registerdelete(Request $request, $id)
     {
@@ -77,33 +68,75 @@ class DashboardController extends Controller
 
     public function registeredTherapist()
     {
-        $therapist = \App\Therapist::paginate(2);
+        $therapist = \App\User::where('status', '1')->get();
+        // $therapist = \App\Therapist::paginate(2);
 
         return view('Admin.register-therapist')->with('therapist', $therapist);
     }
 
-    public function adminviewtherapist(Request $request, $therapist_id)
+    public function adminviewtherapist(Request $request, $id)
     {
-        $therapist = Therapist::findOrFail($therapist_id);
+        $users = User::findOrFail($id);
 
-        return view('Admin.admin-view-therapist')->with('therapist', $therapist);
+        return view('Admin.admin-view-therapist')->with('users', $users);
     }
 
-    public function therapistdelete(Request $request, $therapist_id)
+    public function therapistdelete($id)
     {
-        $therapist = User::findOrFail($therapist_id);
+        $therapist = User::findOrFail($id);
         $therapist->delete();
 
         return redirect('/register-therapist')->with('status', 'Your Data is Deleted');
     }
 
+    public function newTherapist()
+    {
+        $users = \App\User::where('status', '0')->get();
+        
+        // $therapist = \App\Therapist::paginate(2);
+
+        return view('Admin.register-new-therapist')->with('users', $users);
+    }
+
+    public function adminviewnewtherapist($id)
+    {
+        $therapist = User::findOrFail($id);
+
+        return view('Admin.admin-view-newtherapist')->with('therapist', $therapist);
+    }
+
+    public function registerupdate(Request $request, $id)
+    {
+        $users = User::find($id);
+        $users->status = $request->input('status');
+        $users->update();
+
+        // Mail::to('test@test.com')->send(new UpdateRoleMail($users));
+
+        return redirect('/register-new-therapist')->with('status', 'Therapist Application is Approve');
+    }
+
     // END THERAPIST VIEW
+
+
+    // CUSTOMER BOOKING
+
+    public function customerbooking()
+    {
+
+         $bookings = \App\Bookings::paginate(6);
+
+        return view('Admin.admin-customerbooking')->with('bookings', $bookings);
+    }
+
+    // END OF CUSTOMER BOOKING
+
 
     // Enquiries View
 
     public function adminenquiries()
     {
-        $enquiries = \App\Enquiries::paginate(2);
+        $enquiries = \App\Enquiries::paginate(6);
 
         return view('Admin.admin-enquiries')->with('enquiries', $enquiries);
     }

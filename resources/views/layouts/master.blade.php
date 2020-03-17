@@ -45,22 +45,39 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="{{ 'role-register' == request()->path() ? 'active' :'' }} ">
-            <a href="/role-register">
+          
+          <li class="nav-item dropdown">
+            <a id="navbarDropdown"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
               <i class="now-ui-icons users_single-02"></i>
               <p>Registered User</p>
             </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" href="/role-register" >
+                Customer
+                </a>
+                <a class="dropdown-item" href="/register-therapist" >
+                  Therapist
+                  </a>
+            </div>
           </li>
-          <li class="{{ 'register-therapist' == request()->path() ? 'active' :'' }} ">
-            <a href="/register-therapist">
-              <i class="now-ui-icons business_badge"></i>
+          <li class="{{ 'register-new-therapist' == request()->path() ? 'active' :'' }}  ">
+            <a href="register-new-therapist">
+              <i class="now-ui-icons users_circle-08"></i>
               <p>New Therapist</p>
             </a>
           </li>
+          
           <li class="{{ 'admin-treatments' == request()->path() ? 'active' :'' }}  ">
             <a href="/admin-treatments">
               <i class="now-ui-icons gestures_tap-01"></i>
               <p>Treatment</p>
+            </a>
+          </li>
+          
+          <li class="{{ 'customerbooking' == request()->path() ? 'active' :'' }}  ">
+            <a href="customerbooking">
+              <i class="now-ui-icons ui-1_calendar-60"></i>
+              <p>Customer Booking</p>
             </a>
           </li>
           <li class="{{ 'admin-enquiries' == request()->path() ? 'active' :'' }} ">
@@ -69,6 +86,10 @@
               <p>View Enquiries</p>
             </a>
           </li>
+
+          
+
+
         </ul>
       </div>
     </div>
