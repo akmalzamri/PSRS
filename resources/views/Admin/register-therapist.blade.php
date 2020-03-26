@@ -30,10 +30,10 @@ Register Therapist
                 <div class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
-                            
+                            <th>ID</th>
                             <th>Name</th>
                             <th> Email </th>
-                            
+                            <th> Joined at</th>
                             <th> Action </th>
                             <th> </th>
 
@@ -41,17 +41,10 @@ Register Therapist
                         <tbody>
                             @foreach ($therapist as $row)
                             <tr>
-                               
+                                <td> {{ $row->id }}</td>
                                 <td> {{ $row->name }}</td>
                                 <td> {{ $row->email }}</td>
-                                {{-- <td> @if($row->usertype==0)
-                                    Therapist
-                                    @elseif($row->usertype==1)
-                                    Therapist
-                                    @else
-                                    Admin
-                                    @endif
-                                </td> --}}
+                                <td> {{ $row->created_at }}</td>
                                 <td>
                                     <a href="admin-view-therapist/{{ $row->id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
 

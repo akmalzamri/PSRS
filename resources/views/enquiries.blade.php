@@ -35,9 +35,9 @@
 
       <div class="collapse navbar-collapse" id="site-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="#section-home" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="#section-about" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="#section-treatments" class="nav-link">Treatments</a></li>
+          <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="/" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="/" class="nav-link">Treatments</a></li>
           <li class="nav-item"><a href="/welcome-enquiries" class="nav-link">Enquiries</a></li>
           <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
           <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal" data-target="#reservationModal">Register</a></li>
@@ -60,121 +60,59 @@
   </section>
   <!-- END section -->
 
-  <section class="site-section" id="section-about">
+
+
+
+  <section class="site-section bg-light" id="section-enquiries">
     <div class="container">
       <div class="row">
-        <div class="col-md-5 site-animate mb-5">
-          <h4 class="site-sub-title">about us</h4>
-          <h2 class="site-primary-title display-4">Why PSRS ?</h2>
-          <p>We provide you only the best physiotheraphy services by our certified therapist in town. Our therapist is hand selected in person. So that your wellness experiences will be healing and compassionate.
-            Get your physiotheraphy service done right in the comfort of your own home. </p>
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-6 site-animate img" data-animate-effect="fadeInRight">
-          <img src="images/therapist_1.jpg" alt="Free Template by colorlib.com" class="img-fluid">
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- END section -->
-
-
-  <section class="site-section bg-light" id="section-treatments">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center mb-5 site-animate">
-          <h2 class="display-4">Treatments</h2>
-          <div class="row justify-content-center">
-            <div class="col-md-7">
-              <p class="lead">Register with us before you make any booking!</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-12 text-center">
-
-          <ul class="nav site-tab-nav nav-pills mb-5" id="pills-tab" role="tablist">
-            <li class="nav-item site-animate">
-              <a class="nav-link active" id="pills-Massage-tab" data-toggle="pill" href="#pills-Massage" role="tab" aria-controls="pills-Massage" aria-selected="true">Treatments</a>
-            </li>
-           
-          </ul>
-
-          <div class="tab-content text-left">
-            <div class="tab-pane fade show active" id="pills-Massage" role="tabpanel" aria-labelledby="pills-Massage-tab">
-              <div class="row">
-                @foreach ($treatments as $treatment)
-                <div class="col-md-6 site-animate">
-                  <div class="media menu-item">
-                    <img class="mr-3" src="/{{$treatment->photo_path}}" class="img-fluid" alt="Free Template by colorlib.com">
-                    <div class="media-body">
-                      <h5 class="mt-0">{{ $treatment->treatmentname }}</h5>
-                      <!-- <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
-                      <h6 class="text-primary menu-price">RM {{ $treatment->treatmentprice }}</h6>
-                    </div>
-                  </div>
-                </div>
-                @endforeach
-              </div>
-            </div> 
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- END section -->
-
-  <!-- Why Choose our therapist -->
-
-  <section class="site-section " id="section-therapist">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-5 site-animate mb-5">
-          <!-- <h4 class="site-sub-title">about us</h4> -->
-          <h2 class="site-primary-title display-15">HOW WE CHOOSE OUR THERAPISTS</h2>
-          <p class="mb-5 lead">The Best Quality – We select, meet and screened our therapist in person to ensure their overall professionalism, including their physiotheraphy services utmost along with etiquettes, are at its best.</p>
-
-
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-6 site-animate img" data-animate-effect="fadeInLeft">
-          <img src="images/therapists_aboutus.jpg" alt="Free Template by colorlib.com" class="img-fluid">
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-
-
-  <section class="site-section" id="section-gallery">
-    <div class="container">
-      <div class="row site-custom-gutters">
 
         <div class="col-md-12 text-center mb-5 site-animate">
-          <h2 class="display-4">Gallery</h2>
-          <div class="row justify-content-center">
-            <div class="col-md-7">
-              <p class="lead">Our service that you can book.</p>
-            </div>
+          <h2 class="display-4">Any Enquiries ? </h2>
+          @if (session('status'))
+          <div class="alert alert-success" role="alert">
+            {{ session('status')}}
           </div>
+          @endif
+        
         </div>
-        @foreach ($treatments as $treatment)
+
+        <div class="col-md-7 mb-5 site-animate">
+          <form action="welcome-enquiries" method="post">
+            {{ csrf_field() }}
+            <div class="form-group">
+              <label for="name" class="sr-only">Name</label>
+              <input type="text" class="form-control" name="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+              <label for="email" class="sr-only">Email</label>
+              <input type="text" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="message" class="sr-only">Message</label>
+              <textarea name="message" id="" cols="30" rows="10" class="form-control" placeholder="Write your message"></textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btn-lg" value="Send Enquiries">
+            </div>
+          </form>
+        </div>
+        <div class="col-md-1"></div>
         <div class="col-md-4 site-animate">
-          <a href="/{{$treatment->photo_path}}" class="site-thumbnail image-popup">
-            <img src="/{{$treatment->photo_path}}" alt="Free Template by colorlib.com" class="img-fluid">
-          </a>
-        </div>
+          <p><img src="images/about_img_1.jpg" alt="" class="img-fluid"></p>
+          <p class="text-black">
+            Address: <br> Lot L3-21, Level 3 Amcorp Mall, No 18, Jalan Persiaran Barat, <br> 46050 Petaling Jaya, Selangor.<br> <br>
+            Phone: <br>+603-7931 0505<br> <br>
+            Email: <br> <a href="#">wellfitgeneration@gmail.com</a>
+          </p>
 
-        @endforeach
-       
+        </div>
 
       </div>
     </div>
   </section>
-  <!-- END section -->
 
+  <!-- END section -->
 
 
   <footer class="site-footer site-bg-dark site-section">
@@ -235,6 +173,9 @@
       <div class="modal-content">
         <div class="modal-body">
           <div class="row">
+            <!-- <div class="col-lg-12">
+              <div class="bg-image" style="background-image: url(images/reservation_1.jpg);"></div>
+            </div> -->
             <div class="col-lg-12 p-5" align="center">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <small>CLOSE </small><span aria-hidden="true">&times;</span>
@@ -252,8 +193,6 @@
   </div>
 
   <!-- END Modal -->
-
-  
 
   <!-- loader -->
   <div id="site-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">

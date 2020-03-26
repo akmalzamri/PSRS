@@ -37,9 +37,10 @@ Register User
                            
                             <th>Booking ID</th>
                             <th> Customer Name </th>
-                            <th>Date</th>
-                            <th> Time </th>                            
+                            <th>Date Time </th>
+                                                       
                             <th> Customer Address </th>
+                            <th> Status </th> 
                             <th> Action </th>
 
                         </thead>
@@ -48,11 +49,19 @@ Register User
                             <tr>
                               
                                 <td> {{ $row->id }}</td>
-                                <td> </td>
-                                <td> {{ $row->booking_date }}</td>
-                                <td> {{ $row->booking_time }}</td>
-                              
-                                <td> </td>
+                                <td> {{ $row->user_id }}</td>
+                                <td> {{ $row->booking_date }}
+                                 {{ $row->booking_time }}</td>
+                                 <td> </td>
+                                
+                                <td> @if($row->status==0)
+                                    <p class="badge badge-warning">Book</p>
+                                    @elseif($row->status==1)
+                                    <p class="badge badge-danger">Pending</p>
+                                    @else
+                                    -Nothing to show-
+                                    @endif
+                                </td>
                                 <td>
                               
 

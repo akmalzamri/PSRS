@@ -34,7 +34,7 @@ Register User
                 <div class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
-                           
+                            <th>ID</th>
                             <th>Name</th>
                             <th> Email </th>
                          
@@ -44,7 +44,7 @@ Register User
                         <tbody>
                             @foreach ($users as $row)
                             <tr>
-                              
+                                <td> {{ $row->id }}</td>
                                 <td> {{ $row->name }}</td>
                                 <td> {{ $row->email }}</td>
                                 {{-- <td> @if($row->usertype==0)

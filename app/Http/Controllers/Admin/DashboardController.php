@@ -33,7 +33,8 @@ class DashboardController extends Controller
     public function registered()
     {
          
-        $users = \App\User::where('usertype', '0')->get();
+        $users = \App\User::where('usertype', '0')->orderBy('id', 'DESC')->paginate(6);
+  
        
         
         return view('Admin.register')->with('users', $users);
@@ -68,8 +69,8 @@ class DashboardController extends Controller
 
     public function registeredTherapist()
     {
-        $therapist = \App\User::where('status', '1')->get();
-        // $therapist = \App\Therapist::paginate(2);
+        $therapist = \App\User::where('status', '1')->orderBy('id', 'DESC')->paginate(6);
+     
 
         return view('Admin.register-therapist')->with('therapist', $therapist);
     }
@@ -91,9 +92,9 @@ class DashboardController extends Controller
 
     public function newTherapist()
     {
-        $users = \App\User::where('status', '0')->get();
+        $users = \App\User::where('status', '0')->orderBy('id', 'DESC')->paginate(6);
         
-        // $therapist = \App\Therapist::paginate(2);
+      
 
         return view('Admin.register-new-therapist')->with('users', $users);
     }
@@ -111,7 +112,7 @@ class DashboardController extends Controller
         $users->status = $request->input('status');
         $users->update();
 
-        // Mail::to('test@test.com')->send(new UpdateRoleMail($users));
+        Mail::to('test@test.com')->send(new UpdateRoleMail($users));
 
         return redirect('/register-new-therapist')->with('status', 'Therapist Application is Approve');
     }
@@ -124,7 +125,9 @@ class DashboardController extends Controller
     public function customerbooking()
     {
 
-         $bookings = \App\Bookings::paginate(6);
+         $bookings = \App\Bookings::orderBy('id', 'DESC')->paginate(6);
+        //  $bookings = \App\User::where('name')->get();
+
 
         return view('Admin.admin-customerbooking')->with('bookings', $bookings);
     }
@@ -136,7 +139,7 @@ class DashboardController extends Controller
 
     public function adminenquiries()
     {
-        $enquiries = \App\Enquiries::paginate(6);
+        $enquiries = \App\Enquiries::orderBy('id', 'DESC')->paginate(6);
 
         return view('Admin.admin-enquiries')->with('enquiries', $enquiries);
     }
@@ -184,13 +187,15 @@ class DashboardController extends Controller
 
 
     // Add Treatment
-    public function treatments()
+    public function treatments(Request $req)
     {
        
-        $treatments = \App\Treatments::paginate(4);
+        $treatments = \App\Treatments::orderBy('treatments_id', 'DESC')->paginate(6);
+       
 
       
-        return view('Admin.admin-treatments')->with('treatments', $treatments);
+      
+        return view('Admin.admin-treatments', compact('treatments'));
     }
 
     public function addtreatments()
@@ -261,4 +266,5 @@ class DashboardController extends Controller
 
 
     // End Add Treatment
+
 }

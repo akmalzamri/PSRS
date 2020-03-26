@@ -36,7 +36,7 @@ Treatments Side
                             <th> Name</th>
                             <th> Price (RM) </th>
                             <th> Hour </th>
-                            <th> Description </th>
+                       
                             <th> Image </th>
                             <th> Action </th>
                      
@@ -50,7 +50,7 @@ Treatments Side
                                 <td> {{ $row->treatmentname }}</td>        
                                 <td> {{ $row->treatmentprice }}</td>
                                 <td> {{ $row->treatmentduration }}</td>
-                                <td> {{ $row->treatmentdescription }}</td>
+                               
                                 <td>   <img src="/{{$row->photo_path}}" alt="" style="width: 100px; height: 100px; "> </td>
                                 <td>
                                     <a href="/admin-edit-treatments/{{ $row->treatments_id }}" class="btn btn-success"><i class="fa fa-edit"></i></a>

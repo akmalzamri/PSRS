@@ -56,7 +56,7 @@ class RegisterController extends Controller
         $therapist->password = \Hash::make(Request()->password);
         $therapist->usertype = 1;
         $therapist->status = 0;
-   
+        $therapist->email_verified_at = date("Y-m-d H:i:s");
       
         // kalau ada user_id save siap2
         // $therapist->user_id = request('user_id')
@@ -64,7 +64,7 @@ class RegisterController extends Controller
         $therapist->save();
 
         
-        return redirect()->to('login');
+        return redirect()->to('email/verify');
     }
 
     
@@ -91,6 +91,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'usertype' => 1,
+            'status' => 0,
             'password' => Hash::make($data['password']),
         ]);
     }

@@ -9,7 +9,7 @@ class EnquiriesController extends Controller
 {
     public function enquiries()
     {
-        return view('welcome');
+        return view('enquiries');
     }
 
     public function store()
@@ -23,6 +23,6 @@ class EnquiriesController extends Controller
 
         $enquiries->save();
 
-            return redirect('/welcome-enquiries')->with('status', 'Your Enquiries has been submitted!');
+        return view('enquiries')->with('status', 'Your Enquiries has been submitted!');
     }
 }

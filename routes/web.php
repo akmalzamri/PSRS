@@ -2,13 +2,10 @@
 
     Route::get('/', 'WelcomeController@index')->name('welcome');
 
-
-Auth::routes(['verify' => true]);
-
-    Route::get('/welcome-enquiries', 'EnquiriesController@enquiries')->name('welcome-enquiries');
+    Route::get('/welcome-enquiries', 'EnquiriesController@enquiries')->name('enquiries');
     Route::post('welcome-enquiries', 'EnquiriesController@store');
 
-
+    Auth::routes(['verify' => true]);
 // USER ROUTE
 
     Route::get('/home', 'HomeController@index')->name('user/home')->middleware('auth');
@@ -69,6 +66,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
 // THERAPIST ROUTE
 
+    Auth::routes(['reset' => false]);
+
     Route::get('/therapist-register', 'AuthTherapist\RegisterController@registerTherapist')->name('therapist.therapist-register');
     Route::post('/therapist-register-success', 'AuthTherapist\RegisterController@store');
     Route::get('/therapist-home', 'Therapist\TherapistController@dashboardtherapist')->name('therapist/therapist-home'); 
@@ -76,6 +75,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/therapistprofile-update', 'Therapist\TherapistController@therapistupdateprofile')->name('therapist/therapist-profile-update');
     Route::post('/therapistprofile-update', 'Therapist\TherapistController@therapistprofileupdate')->name('therapist/therapist-profile');
     Route::get('/therapistmanagebooking', 'Therapist\TherapistController@managebooking')->name('therapist/therapist-managebookings');
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');

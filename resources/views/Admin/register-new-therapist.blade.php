@@ -30,7 +30,7 @@ New Therapist
                 <div class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
-                            
+                            <th>ID </th>
                             <th>Name</th>
                             <th> Email </th>
                       
@@ -41,7 +41,7 @@ New Therapist
                         <tbody>
                             @foreach ($users as $row)
                             <tr>
-                               
+                                <td> {{ $row->id }}</td>
                                 <td> {{ $row->name }}</td>
                                 <td> {{ $row->email }}</td>
                                 

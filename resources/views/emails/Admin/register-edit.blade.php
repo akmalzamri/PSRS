@@ -2,11 +2,9 @@
 
 # Your Role updated!
 
-<strong>Email</strong> {{ $data['email'] }}
+<strong>Email: </strong> {{ $data['email'] }}
 
-<strong>Usertype</strong>
-
-{{ $data['usertype'] }}
+<strong>Your Request has been approved!</strong>
 
 
 @endcomponent

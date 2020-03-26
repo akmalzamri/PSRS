@@ -219,7 +219,9 @@ class UserController extends Controller
         $bookings->booking_date = $request->session()->get('date');
         $bookings->booking_time =  $request->session()->get('time');
         $bookings->total_amount = $request->session()->put('total');
+        // $bookings->treatments_id = $treatments_id->session()->put('treatments_id');
         // $bookings->total_amount = $data['total'];
+        $bookings->status = 0;
       
         $bookings->save();
 
