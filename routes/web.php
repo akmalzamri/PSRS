@@ -61,6 +61,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::delete('/role-delete-treatments/{treatments_id}', 'Admin\DashboardController@treatmentsdelete');
 
     Route::get('/customerbooking', 'Admin\DashboardController@customerbooking');
+    Route::delete('/role-delete-customerbooking/{id}', 'Admin\DashboardController@bookingdelete');
 });
 
 

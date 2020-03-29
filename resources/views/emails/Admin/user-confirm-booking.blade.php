@@ -1,12 +1,11 @@
 @component('mail::message')
 
-# Bookings Confirmation
+# Bookings Details
 
-<strong>Do not reply this massage</strong> 
-
-
-Date:
-Time 
+Email: {{ $data['email'] }} <br>
+Date: {{ $data['date'] }} <br>
+Time: {{ $data['time'] }} <br>
+Total: {{ $data['total'] }}
 
 Your Booking is Confirmed!
 

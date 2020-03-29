@@ -27,7 +27,7 @@ Enquiries Side
                 
                 @else
                 <div class="table-responsive">
-                    <table class="table">
+                    <table id="datatable" class="table">
                         <thead class=" text-primary">
                             <th>ID</th>
                             <th>Name</th>
@@ -103,6 +103,11 @@ Enquiries Side
     function formSubmit() {
         $("#deleteForm").submit();
     }
+
+    $(document).ready( function ()
+     {
+        $('#datatable').DataTable();
+        } );
 </script>
 
 @endsection

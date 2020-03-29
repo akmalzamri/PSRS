@@ -32,14 +32,13 @@ Register User
                 @else
 
                 <div class="table-responsive">
-                    <table class="table">
+                    <table id="datatable" class="table">
                         <thead class=" text-primary">
                            
                             <th>Booking ID</th>
-                            <th> Customer Name </th>
+                            <th> Customer Email </th>
                             <th>Date Time </th>
-                                                       
-                            <th> Customer Address </th>
+                            
                             <th> Status </th> 
                             <th> Action </th>
 
@@ -49,11 +48,10 @@ Register User
                             <tr>
                               
                                 <td> {{ $row->id }}</td>
-                                <td> {{ $row->user_id }}</td>
+                                <td> {{ $row->user_email }}</td>
                                 <td> {{ $row->booking_date }}
                                  {{ $row->booking_time }}</td>
-                                 <td> </td>
-                                
+                          
                                 <td> @if($row->status==0)
                                     <p class="badge badge-warning">Book</p>
                                     @elseif($row->status==1)
@@ -65,8 +63,8 @@ Register User
                                 <td>
                               
 
-                                    {{-- <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$row->id}})" 
-                                    data-target="#DeleteModal" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a> --}}
+                                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$row->id}})" 
+                                    data-target="#DeleteModal" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
                      
                                  
                                 </td>
@@ -117,7 +115,7 @@ Register User
      function deleteData(id)
      {
          var id = id;
-         var url = "/role-delete/{id}";
+         var url = "/role-delete-customerbooking/{id}";
          url = url.replace('{id}', id);
          $("#deleteForm").attr('action', url);
      }
@@ -126,6 +124,11 @@ Register User
      {
          $("#deleteForm").submit();
      }
+
+     $(document).ready( function ()
+     {
+        $('#datatable').DataTable();
+        } );
   </script>
 
 @endsection

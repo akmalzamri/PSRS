@@ -209,13 +209,13 @@ class UserController extends Controller
        
 
         $cart = session()->get('cart');
-        // $total = 0;
-        // foreach ($cart as $data)
-        // {  
+     
 
 
         $bookings = new bookings();
         $bookings->user_id = Auth::user()->id;
+        $bookings->user_name = Auth::user()->name;
+        $bookings->user_email = Auth::user()->email;
         $bookings->booking_date = $request->session()->get('date');
         $bookings->booking_time =  $request->session()->get('time');
         $bookings->total_amount = $request->session()->put('total');
@@ -225,7 +225,6 @@ class UserController extends Controller
       
         $bookings->save();
 
-        // }
         Mail::to('test@test.com')->send(new ConfirmBookingMail($bookings));
 
         $request->session()->forget('cart'); 

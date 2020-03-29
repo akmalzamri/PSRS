@@ -28,7 +28,7 @@ Register Therapist
                 
                 @else
                 <div class="table-responsive">
-                    <table class="table">
+                    <table id="datatable" class="table">
                         <thead class=" text-primary">
                             <th>ID</th>
                             <th>Name</th>
@@ -104,6 +104,11 @@ Register Therapist
     function formSubmit() {
         $("#deleteForm").submit();
     }
+
+    $(document).ready( function ()
+     {
+        $('#datatable').DataTable();
+        } );
 </script>
 
 @endsection

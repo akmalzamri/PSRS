@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use App\Bookings;
 use App\Enquiries;
 use App\Therapist;
 use App\Treatments;
@@ -33,7 +34,7 @@ class DashboardController extends Controller
     public function registered()
     {
          
-        $users = \App\User::where('usertype', '0')->orderBy('id', 'DESC')->paginate(6);
+        $users = \App\User::where('usertype', '0')->orderBy('id', 'DESC')->get();
   
        
         
@@ -69,7 +70,7 @@ class DashboardController extends Controller
 
     public function registeredTherapist()
     {
-        $therapist = \App\User::where('status', '1')->orderBy('id', 'DESC')->paginate(6);
+        $therapist = \App\User::where('status', '1')->orderBy('id', 'DESC')->get();
      
 
         return view('Admin.register-therapist')->with('therapist', $therapist);
@@ -125,12 +126,21 @@ class DashboardController extends Controller
     public function customerbooking()
     {
 
-         $bookings = \App\Bookings::orderBy('id', 'DESC')->paginate(6);
+         $bookings = \App\Bookings::orderBy('id', 'DESC')->get();
         //  $bookings = \App\User::where('name')->get();
 
 
         return view('Admin.admin-customerbooking')->with('bookings', $bookings);
     }
+
+    public function bookingdelete(Request $request, $id)
+    {
+        $bookings = Bookings::findOrFail($id);
+        $bookings->delete();
+
+        return redirect('/customerbooking')->with('status', 'Your Data is Deleted');
+    }
+
 
     // END OF CUSTOMER BOOKING
 
@@ -139,9 +149,10 @@ class DashboardController extends Controller
 
     public function adminenquiries()
     {
+     
         $enquiries = \App\Enquiries::orderBy('id', 'DESC')->paginate(6);
 
-        return view('Admin.admin-enquiries')->with('enquiries', $enquiries);
+        return view('Admin.admin-enquiries', compact('enquiries'));
     }
 
     public function adminviewenquiries($id)
@@ -190,11 +201,8 @@ class DashboardController extends Controller
     public function treatments(Request $req)
     {
        
-        $treatments = \App\Treatments::orderBy('treatments_id', 'DESC')->paginate(6);
+        $treatments = \App\Treatments::orderBy('treatments_id', 'DESC')->get();
        
-
-      
-      
         return view('Admin.admin-treatments', compact('treatments'));
     }
 
