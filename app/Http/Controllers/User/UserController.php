@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers\User;
 
-use session;
 use App\User;
 use App\Bookings;
-Use \Carbon\Carbon;
 use App\Enquiries;
 use App\Treatments;
 use Illuminate\Http\Request;
-use App\Mail\ConfirmBookingMail;
-use App\Mail\ReplyEnquiriesMail;
+use App\Mail\CustomerBookingMail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -225,10 +222,11 @@ class UserController extends Controller
       
         $bookings->save();
 
-        Mail::to('test@test.com')->send(new ConfirmBookingMail($bookings));
+        Mail::to('test@test.com')->send(new CustomerBookingMail($bookings));
 
         $request->session()->forget('cart'); 
-        return redirect('/receipt')->with('status', 'Your Booking has been accepted!');
+        
+        return redirect('/receipt');
     }
 
 
@@ -244,7 +242,9 @@ class UserController extends Controller
     public function managebooking()
     {
         
-        $managebookings = \App\Bookings::where('user_id', Auth::user()->id)->get();
+        $managebookings = \App\Bookings::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->get();
+
+       
        
 
         return view('user/managebooking')->with('managebookings', $managebookings);

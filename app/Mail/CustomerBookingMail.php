@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ConfirmBookingMail extends Mailable
+class CustomerBookingMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -31,6 +31,6 @@ class ConfirmBookingMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.Admin.user-confirm-booking');
+        return $this->markdown('emails.Admin.CustomerBooking');
     }
 }
