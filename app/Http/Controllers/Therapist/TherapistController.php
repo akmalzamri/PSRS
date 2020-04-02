@@ -13,7 +13,7 @@ class TherapistController extends Controller
 
     public function dashboardtherapist()
     {
-        $bookings = \App\Bookings::paginate(2);
+        $bookings = \App\Bookings::where('therapist', Auth::user()->name)->orderBy('id', 'DESC')->paginate(2);
         
 
         return view('therapist/therapist-home', compact('bookings'));
@@ -87,7 +87,7 @@ class TherapistController extends Controller
     public function managebooking()
     {
 
-         $bookings = \App\Bookings::paginate(2);
+         $bookings = \App\Bookings::where('therapist', Auth::user()->name)->orderBy('id', 'DESC')->get();
 
         return view('therapist.therapist-managebookings')->with('bookings', $bookings);
     }

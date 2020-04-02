@@ -31,25 +31,29 @@
                             <th>Booking ID</th>
                             <th> Customer Name </th>
                             <th>Date</th>
-                            <th> Time </th>                            
-                            <th> Customer Address </th>
+                            <th> Time </th>  
+                            <th> Contact </th>                           
+                            <th>Action</th>
 
                         </thead>
                         <tbody>
                             @foreach ($bookings as $row)
                             <tr>
                                 <td> {{ $row->id }}</td>
-                                <td> Akmal Zamri (testing) </td>   
+                                <td>{{ $row->user_name }}</td>   
                                 <td> {{ $row->booking_date }}</td>
                                 <td> {{ $row->booking_time }}</td>
-                                <td>  No. 9, JLN Impian Makmur 4/1, Saujana Impian (Testing)</td>                           
+                                <td> {{ $row->user_contact }}</td>
+                                <td>     <a href="/admin-view-enquiries/{{ $row->id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+ 
+                              </td>                           
                                             
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                     @endif
-                    {{ $bookings->links() }} 
+                   
                 </div>
             </div>
               </div>

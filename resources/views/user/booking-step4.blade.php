@@ -24,10 +24,12 @@
                       Date: {{$date}}
                       <br> 
                       Time: {{$time}}
-                      
+                      <br> 
+                      Therapist: {{$therapist}}
                       @else
                       <p style="color:red">*Please Select Date & Time</p>
                       @endif
+                      
                      <br>
                      <br>
                      <br>

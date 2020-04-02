@@ -9,6 +9,7 @@
       <div class="card">
         <div class="card-header">
             <div>
+                <h3>Session Cart</h3>
                 <h4>Check your cart and select Time and Date for your session.</h4>
                 
                 <?php $total = 0 ?>
@@ -41,8 +42,56 @@
                                 </div>
                             </th>
                         </tr>
+                        
                     </tbody>  
                 </table>   
+
+                 <!--================Category Therapist Area =================-->
+                 <h5>Select Your Therapist:</h5>
+                 <br>
+                         {{-- <div class="row">
+                         @foreach ($users as $row) 
+                         <div class="col-lg-4 col-md-6">
+                             <div class="single-product">
+                             <div class="product-img">
+                                 <img class="card-img"  src="/{{$row->photo_path}}"  alt=""   style="width: 80px; height: 80px; border-radius: 50% "/>
+                                 <div class="p_icon">
+                                 
+                                 <a href="{{ url('add-to-cart/'.$row->id) }}">
+                                     <i class="ti-shopping-cart"></i>
+                                 </a>
+                                 </div>
+                             </div>
+                             <div class="product-btm">
+                             
+                                 <h4 class="d-block" align="center">{{ $row->name }}</h4>
+                                 
+                             </div>
+                           
+                             
+                                 <div class="media-body" align="center">
+                                     <input type="submit" name="therapist" class="btn btn-warning " value="Select">
+                                     
+                                   </div>
+                            
+                             </div>
+                         </div>
+                         @endforeach 
+                     </div> --}}
+ 
+                     <div class="form-group">  
+                         <select name="therapist" class="form-control">
+                             @foreach ($users as $row)      
+                         <option name="therapist" value="{{$row->name}}">{{ $row->name }}</option>
+                             @endforeach  
+                         </select>         
+                    </div>
+                    <Br>
+                     <Br>
+                         <Br>
+               
+             <!--================End Category Therapist Area =================-->
+ 
                 <table id="cart" class="table table-hover table-condensed">
                     <thead>
                     <tr>

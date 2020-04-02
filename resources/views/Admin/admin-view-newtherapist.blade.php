@@ -18,7 +18,7 @@ View Details Therapist
 
                 </div>
                 <div class="card-body">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <form action="/register-new-therapist-update/{{ $therapist->id }}" method="POST"> 
                           
                                 {{csrf_field()}}
@@ -35,9 +35,14 @@ View Details Therapist
                                         </select>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <button type="submit" class="btn btn-success" style="border-radius: 30px;">Update Role</button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Image</label>
                                         <img class=" border-gray" src="/{{$therapist->photo_path}}"  alt="..." placeholder="Not Update yet" >
@@ -122,9 +127,7 @@ View Details Therapist
                                     </div>
                                 </div>
                                 
-                                <div class="col-md-6">
-                                    <button type="submit" class="btn btn-success"> Update </button>
-                                </div>
+                              
                             </div>
                         </form>
                     </div>

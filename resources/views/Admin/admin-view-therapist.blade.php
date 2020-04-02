@@ -18,13 +18,19 @@ View Details Therapist
 
                 </div>
                 <div class="card-body">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <form action="#" method="POST">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Image</label>
                                         <img class=" border-gray" src="/{{$users->photo_path}}"  alt="...">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Related Document</label>
+                                        <img class=" border-gray" src="/{{$users->document_path}}"  alt="..." placeholder="Not Update yet" >
                                     </div>
                                 </div>
                             </div>

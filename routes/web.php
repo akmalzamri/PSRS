@@ -13,7 +13,7 @@
     Route::get('add-to-cart/{id}', 'User\UserController@addtocart');
     Route::get('cart', 'User\UserController@cart');
     Route::delete('remove-from-cart', 'User\UserController@remove');
-    Route::get('/booking3', 'User\UserController@bookingstep3')->name('user/booking-step3');
+    // Route::post('/theraphist', 'User\UserController@choosetheraphist')->name('user/booking-step3'); *Incase infuture nak pakai
     Route::post('/booking4', 'User\UserController@bookingstep4')->name('user/booking-step4');
     Route::post('confirmbooking', 'User\UserController@storebooking');
     Route::get('/receipt', 'User\UserController@bookingreceipt')->name('user/booking-receipt');

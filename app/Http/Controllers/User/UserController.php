@@ -159,9 +159,9 @@ class UserController extends Controller
     public function cart()
     {
         
-       
+        $users = \App\User::where('status', '1')->get();
               
-        return view('user/booking-cart');
+        return view('user/booking-cart')->with('users', $users);
     }
 
     public function remove(Request $request)
@@ -183,10 +183,15 @@ class UserController extends Controller
 
 
 
-    public function bookingstep3()
-    {
-        return view('user/booking-step3');
-    }
+    // public function choosetheraphist(Request $request)
+    // {
+    //     $users = \App\User::where('status', '1')->get();
+
+    //     $request->session()->put('date',$request->input('date'));
+    //     $request->session()->put('time',$request->input('time'));
+
+    //     return view('user/booking-step3')->with('users', $users)->with('date',$request->session()->get('date'))->with('time',$request->session()->get('time'));
+    // }
 
 
     public function bookingstep4(Request $request)
@@ -195,9 +200,9 @@ class UserController extends Controller
         
         $request->session()->put('date',$request->input('date'));
         $request->session()->put('time',$request->input('time'));
- 
+        $request->session()->put('therapist',$request->input('therapist'));
         
-        return view('user/booking-step4')->with('date',$request->session()->get('date'))->with('time',$request->session()->get('time'));
+        return view('user/booking-step4')->with('therapist',$request->session()->get('therapist'))->with('date',$request->session()->get('date'))->with('time',$request->session()->get('time'));
     }
 
     public function storebooking(Request $request)
@@ -213,8 +218,10 @@ class UserController extends Controller
         $bookings->user_id = Auth::user()->id;
         $bookings->user_name = Auth::user()->name;
         $bookings->user_email = Auth::user()->email;
+        $bookings->user_contact = Auth::user()->contact;
         $bookings->booking_date = $request->session()->get('date');
         $bookings->booking_time =  $request->session()->get('time');
+        $bookings->therapist =  $request->session()->get('therapist');
         $bookings->total_amount = $request->session()->put('total');
         // $bookings->treatments_id = $treatments_id->session()->put('treatments_id');
         // $bookings->total_amount = $data['total'];

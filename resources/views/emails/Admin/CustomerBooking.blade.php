@@ -14,6 +14,9 @@
 <strong>Time</strong>
 {{ $data['booking_time'] }}
 
+<strong>Therapist</strong>
+{{ $data['therapist'] }}
+
 <strong>TotalCharge</strong>
 {{ $data['total_amount'] }}
 
