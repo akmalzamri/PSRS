@@ -209,8 +209,8 @@ class UserController extends Controller
     
     {
        
-
-        $cart = session()->get('cart');
+        $oldCart = session()->get('cart');
+        $cart = new Bookings($oldCart);
      
 
 

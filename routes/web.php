@@ -67,7 +67,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
 // THERAPIST ROUTE
 
-    Auth::routes(['reset' => false]);
+    
 
     Route::get('/therapist-register', 'AuthTherapist\RegisterController@registerTherapist')->name('therapist.therapist-register');
     Route::post('/therapist-register-success', 'AuthTherapist\RegisterController@store');
@@ -76,6 +76,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/therapistprofile-update', 'Therapist\TherapistController@therapistupdateprofile')->name('therapist/therapist-profile-update');
     Route::post('/therapistprofile-update', 'Therapist\TherapistController@therapistprofileupdate')->name('therapist/therapist-profile');
     Route::get('/therapistmanagebooking', 'Therapist\TherapistController@managebooking')->name('therapist/therapist-managebookings');
+    Route::get('/therapist-view-booking/{id}', 'Therapist\TherapistController@viewbookings');
+    Route::post('/therapistmanagebooking', 'Therapist\TherapistController@emailenquiries');
 
-
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');

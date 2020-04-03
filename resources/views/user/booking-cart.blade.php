@@ -49,56 +49,39 @@
                  <!--================Category Therapist Area =================-->
                  <h5>Select Your Therapist:</h5>
                  <br>
-                         {{-- <div class="row">
+                         <div class="row">
                          @foreach ($users as $row) 
                          <div class="col-lg-4 col-md-6">
-                             <div class="single-product">
-                             <div class="product-img">
-                                 <img class="card-img"  src="/{{$row->photo_path}}"  alt=""   style="width: 80px; height: 80px; border-radius: 50% "/>
-                                 <div class="p_icon">
-                                 
-                                 <a href="{{ url('add-to-cart/'.$row->id) }}">
-                                     <i class="ti-shopping-cart"></i>
-                                 </a>
-                                 </div>
-                             </div>
-                             <div class="product-btm">
-                             
-                                 <h4 class="d-block" align="center">{{ $row->name }}</h4>
-                                 
-                             </div>
-                           
-                             
-                                 <div class="media-body" align="center">
-                                     <input type="submit" name="therapist" class="btn btn-warning " value="Select">
-                                     
-                                   </div>
-                            
-                             </div>
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <img class="card-img"  src="/{{$row->photo_path}}"  alt=""   style="width: 80px; height: 80px; border-radius: 50% "/>  
+                                    </div>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <div class="media-body" align="center">
+                                        <input type="submit" name="therapist" class="btn btn-warning " value="{{$row->name}}">         
+                                    </div>
+                                </div>
                          </div>
                          @endforeach 
-                     </div> --}}
+                     </div>
  
-                     <div class="form-group">  
-                         <select name="therapist" class="form-control">
-                             @foreach ($users as $row)      
-                         <option name="therapist" value="{{$row->name}}">{{ $row->name }}</option>
-                             @endforeach  
-                         </select>         
-                    </div>
                     <Br>
-                     <Br>
-                         <Br>
+                    <Br>
+                    <Br>
                
              <!--================End Category Therapist Area =================-->
  
                 <table id="cart" class="table table-hover table-condensed">
                     <thead>
                     <tr>
-                        <th style="width:50%">Product</th>
-                        <th style="width:10%">Price</th>
+                        <th style="width:50%"><h5>Product</h5></th>
+                        <th style="width:10%"><h5>Price</h5></th>
                         <th style="width:8%"></th>
-                        <th style="width:22%" class="text-center">Subtotal</th>
+                        <th style="width:22%" class="text-center"><h5>Subtotal</h5></th>
                         <th style="width:10%"></th>
                     </tr>
                     </thead>
@@ -108,13 +91,7 @@
              
                             <?php $total += $details['price'] * $details['quantity'] ?>
                         <tr>
-                            <td data-th="Product">
-                                <div class="row">
-                                  
-                                        <h4 class="nomargin">{{ $details['name'] }}</h4>
-                                    </div>
-                                </div>
-                            </td>
+                            <td data-th="Product">{{ $details['name'] }}</td>
                             <td data-th="Price">RM {{ $details['price'] }}</td>
                             <td data-th="Quantity">
                             </td>
@@ -144,7 +121,7 @@
                     <td></td>
                     <td colspan="2" class="hidden-xs"></td>
                     <td></td>
-                    <td><button type="submit" name="button" class="btn btn-warning">Proceed <i class="fa fa-angle-right"></i></button></td>
+                   
                 </tr>
 
                 </tfoot>

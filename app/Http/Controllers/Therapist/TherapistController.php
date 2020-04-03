@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Therapist;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\User;
+use App\Bookings;
+use Illuminate\Http\Request;
+use App\Mail\TherapistSentMail;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class TherapistController extends Controller
 {
@@ -90,6 +93,30 @@ class TherapistController extends Controller
          $bookings = \App\Bookings::where('therapist', Auth::user()->name)->orderBy('id', 'DESC')->get();
 
         return view('therapist.therapist-managebookings')->with('bookings', $bookings);
+    }
+
+    public function viewbookings($id)
+    {
+
+        $bookings = Bookings::findOrFail($id);
+
+        
+        return view('therapist.therapist-view-bookings')->with('bookings', $bookings);
+    }
+
+    public function emailenquiries()
+    {
+
+        $data = request()->validate([
+
+            'email' => 'required|email',
+            'message' => 'required',
+        ]);
+
+         Mail::to('test@test.com')->send(new TherapistSentMail($data));
+
+
+        return redirect('therapistmanagebooking')->with('status', 'Your Email have been sent!');
     }
     
 }

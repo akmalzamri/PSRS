@@ -126,17 +126,17 @@
             <ul>
               <li>
                 <a href="https://www.creative-tim.com">
-                  Creative Tim
+                  {{-- Creative Tim --}}
                 </a>
               </li>
               <li>
                 <a href="http://presentation.creative-tim.com">
-                  About Us
+                  {{-- About Us --}}
                 </a>
               </li>
               <li>
                 <a href="http://blog.creative-tim.com">
-                  Blog
+                  {{-- Blog --}}
                 </a>
               </li>
             </ul>

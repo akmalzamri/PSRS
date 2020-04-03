@@ -30,9 +30,9 @@
                     alt=""
                   />
                   <div class="p_icon">
-                    <a href="#" >
+                    {{-- <a href="#" >
 
-                      <i class="ti-eye"></i>
+                      <i class="ti-eye"></i> --}}
                      
                     </a>
                     <a href="{{ url('add-to-cart/'.$row->treatments_id) }}">
