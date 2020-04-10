@@ -29,6 +29,7 @@
                         <th> Booking Time</th>
                         <th> Treatments  </th>
                         <th> Therapist  </th>
+                        <th> Total Amount  </th>
                         <th> Requires Action </th>
                  
                     </thead>
@@ -38,8 +39,10 @@
                            
                             <td>  {{ $row->booking_date }}</td>        
                             <td>  {{ $row->booking_time }} </td>
-                            <td>  {{ $row->treatments_id }} </td>
+                            <td>  {{ $row->treatment_name }} </td>
                             <td>  {{ $row->therapist }} </td>
+                            <td>  RM {{ $row->total_amount }} </td>
+                           
                             <td>
                                
                                 <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$row->id}})" 

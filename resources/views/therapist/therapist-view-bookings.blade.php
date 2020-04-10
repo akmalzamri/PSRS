@@ -62,6 +62,14 @@ View Booking
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label>Treatment</label>
+                                <input type="message" class="form-control" value="{{ $bookings->treatment_name }}" disabled>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
                 

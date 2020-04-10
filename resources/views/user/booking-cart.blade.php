@@ -34,10 +34,10 @@
                                 <div class="form-group">  
                                      <select name="time" class="form-control">
                                                 <option></option>
-                                                <option name="time" value="10:00">10:00 am</option>
-                                                <option name="time" value="12:00">12:00 pm</option>
-                                                <option name="time" value="15:00">15:00 pm</option>
-                                                <option name="time" value="18:00">18:00 pm</option>
+                                                <option name="time" value="10:00">10:00</option>
+                                                <option name="time" value="12:00">12:00</option>
+                                                <option name="time" value="15:00">15:00</option>
+                                                <option name="time" value="18:00">18:00</option>
                                             </select>         
                                 </div>
                             </th>

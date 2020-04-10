@@ -115,9 +115,7 @@ class UserController extends Controller
         // if cart is empty then this the first product
         if(!$cart) {
  
-          
-
-            $cart = [
+          $cart = [
                     $treatments_id => [
                         "name" => $treatment->treatmentname,
                         "quantity" => 1,
@@ -197,34 +195,45 @@ class UserController extends Controller
     public function bookingstep4(Request $request)
     {
     
-        
+        $cart = session()->get('cart');
+
         $request->session()->put('date',$request->input('date'));
         $request->session()->put('time',$request->input('time'));
         $request->session()->put('therapist',$request->input('therapist'));
+        $request->session()->put('cart', $cart);
         
-        return view('user/booking-step4')->with('therapist',$request->session()->get('therapist'))->with('date',$request->session()->get('date'))->with('time',$request->session()->get('time'));
+
+        return view('user/booking-step4')->with('therapist',$request->session()->get('therapist'))->with('date',$request->session()->get('date'))->with('time',$request->session()->get('time'))->with('cart',$request->session()->get('cart'));
     }
 
     public function storebooking(Request $request)
     
     {
-       
-        $oldCart = session()->get('cart');
-        $cart = new Bookings($oldCart);
-     
+        
+        $carts = session()->get('cart');
+        $total = 0;
+
+        foreach ($carts as $cart) {
+            
+            $total = $total + ($cart['price'] * $cart['quantity']);
+            $treatment = $cart['name'];
+        }
+        // dd($cart,$total,$treatment);
+      
 
 
         $bookings = new bookings();
         $bookings->user_id = Auth::user()->id;
-        $bookings->user_name = Auth::user()->name;
+        $bookings->user_name = Auth::user()->name; 
         $bookings->user_email = Auth::user()->email;
         $bookings->user_contact = Auth::user()->contact;
         $bookings->booking_date = $request->session()->get('date');
         $bookings->booking_time =  $request->session()->get('time');
         $bookings->therapist =  $request->session()->get('therapist');
-        $bookings->total_amount = $request->session()->put('total');
-        // $bookings->treatments_id = $treatments_id->session()->put('treatments_id');
-        // $bookings->total_amount = $data['total'];
+        $bookings->total_amount = $total;
+        $bookings->treatment_name = $treatment;
+        // $bookings->treatments_id = $request->session('cart')->get($treatments_id);
+     
         $bookings->status = 0;
       
         $bookings->save();
