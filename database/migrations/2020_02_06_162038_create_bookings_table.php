@@ -20,6 +20,8 @@ class CreateBookingsTable extends Migration
             $table->string('total_amount')->nullable();
             $table->string('booking_date')->nullable();
             $table->string('booking_time')->nullable();
+            $table->json('treatment_name')->nullable();
+            $table->json('cart')->nullable();
             $table->timestamps();
         });
     }

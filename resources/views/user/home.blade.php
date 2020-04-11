@@ -30,9 +30,9 @@
                     alt=""
                   />
                   <div class="p_icon">
-                    {{-- <a href="#" >
+                    <a href="/details/{{ $row->treatments_id }}" >
 
-                      <i class="ti-eye"></i> --}}
+                      <i class="ti-eye"></i>
                      
                     </a>
                     <a href="{{ url('add-to-cart/'.$row->treatments_id) }}">
@@ -43,10 +43,7 @@
                 <div class="product-btm">
                  
                     <h4 class="d-block">{{ $row->treatmentname }}</h4>
-                    <div class="mt-3">
-                      <p>({{ $row->treatmentdescription }})</p>
-                       
-                    </div>
+                    
                   
                   <div class="mt-3">
                     <p>{{ $row->treatmentduration }} Hour per Session</p>

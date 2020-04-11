@@ -38,12 +38,14 @@
                       <table class="table">
                         <tbody>
                             <?php $total = 0 ?>
+                            <?php $totalduration = 0 ?>
                                 @if(session('cart'))
                                   @foreach(session('cart') as $treatments_id => $details)
                   
                                   <?php $total += $details['price'] * $details['quantity'] ?>
+                                  <?php $totalduration += $details['duration']?>
                               <tr>
-                                  <td > {{ $details['name'] }}</td>
+                                  <td > {{ $details['name'] }} ({{$details['duration']}} Hour)</td>
                                   <td></td>
                                   <td></td>
                                   <td></td>
@@ -58,6 +60,18 @@
                               @endif
                         </tbody>
                           <tfoot>
+                              <tr>
+                                <td><h5>Total Duration</h5></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><h5><strong> {{ $totalduration}} Hour</strong></h5></td>
+                              </tr>
                               <tr>
                                 <td><h4>Sub-Total</h4></td>
                                 <td></td>
@@ -87,7 +101,7 @@
                           <a class="nav-link active" id="pills-Massage-tab" data-toggle="pill" href="#pills-Massage" role="tab" aria-controls="pills-Massage" aria-selected="true">Cash on Delivery</a>
                         </li>
                         <li class="nav-item site-animate">
-                          <a class="nav-link" id="pills-Bekam-tab" data-toggle="pill" href="#pills-Bekam" role="tab" aria-controls="pills-Bekam" aria-selected="false">Internet Banking</a>
+                          <a class="nav-link" id="pills-Bekam-tab" data-toggle="pill" href="#pills-Bekam" role="tab" aria-controls="pills-Bekam" aria-selected="false">Internet Banking FPX</a>
                         </li>
                         
                       </ul>
@@ -117,7 +131,7 @@
                                 
                                   
                                   <a href="javascript:;" data-toggle="modal" onclick="deleteData()" 
-                                  data-target="#DeleteModal" ><img src="images/maybank.png" class="img-fluid"></a>
+                                  data-target="#DeleteModal" ><img src="images/Maybanks.png" class="img-fluid"></a>
                                 </div>
                               </div>
             
@@ -130,10 +144,76 @@
                                 <div class="media-body">
                               
                                   <a href="javascript:;" data-toggle="modal" onclick="deleteData()" 
-                                  data-target="#DeleteModal" ><img src="images/cimbbank.png" class="img-fluid"></a>
+                                  data-target="#DeleteModal" ><img src="images/cimbbanks.png" class="img-fluid"></a>
                                 </div>
                               </div>
                             </div>
+                            <div class="col-md-3 site-animate">
+            
+                              <div class="media menu-item">
+                              
+                                <div class="media-body">
+                              
+                                  <a href="javascript:;" data-toggle="modal" onclick="deleteData()" 
+                                  data-target="#DeleteModal" ><img src="images/AffinBank.png" class="img-fluid"></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 site-animate">
+            
+                              <div class="media menu-item">
+                              
+                                <div class="media-body">
+                              
+                                  <a href="javascript:;" data-toggle="modal" onclick="deleteData()" 
+                                  data-target="#DeleteModal" ><img src="images/BankIslam.png" class="img-fluid"></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 site-animate">
+            
+                              <div class="media menu-item">
+                              
+                                <div class="media-body">
+                              
+                                  <a href="javascript:;" data-toggle="modal" onclick="deleteData()" 
+                                  data-target="#DeleteModal" ><img src="images/rhb.png" class="img-fluid"></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 site-animate">
+            
+                              <div class="media menu-item">
+                              
+                                <div class="media-body">
+                              
+                                  <a href="javascript:;" data-toggle="modal" onclick="deleteData()" 
+                                  data-target="#DeleteModal" ><img src="images/StandardCharted.png" class="img-fluid"></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 site-animate">
+            
+                              <div class="media menu-item">
+                              
+                                <div class="media-body">
+                              
+                                  <a href="javascript:;" data-toggle="modal" onclick="deleteData()" 
+                                  data-target="#DeleteModal" ><img src="images/PublicBank.png" class="img-fluid"></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 site-animate">
+            
+                              <div class="media menu-item">
+                              
+                                <div class="media-body">
+                              
+                                  <a href="javascript:;" data-toggle="modal" onclick="deleteData()" 
+                                  data-target="#DeleteModal" ><img src="images/Maybank2e.png" class="img-fluid"></a>
+                                </div>
+                              </div>
+                            </div>                          
                           </div>
                         </div>
                       </div>
@@ -194,6 +274,18 @@
                                         <td></td>
                                         <td><h5>RM {{ number_format($total,2) }} </h5></td>
                                     </tr>
+                                    <tr>
+                                      <td>
+                                          <div class="media">
+                                              <div class="media-body">
+                                                  <p>Duration</p>
+                                              </div>
+                                          </div>
+                                      </td>
+                                      <td></td>
+                                      <td></td>
+                                      <td><h5>{{ $totalduration }} Hour</h5></td>
+                                  </tr>
                                     </tbody>
                                   </table>
                                   <div class="modal-footer">

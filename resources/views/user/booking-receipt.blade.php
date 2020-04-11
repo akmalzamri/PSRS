@@ -65,39 +65,7 @@
                     </div>
                     
                   </div>
-                  <div class="order_details_table">
-                    <h2>Order Details</h2>
-                    <div class="table-responsive">
-                      <table id="cart" class="table table-hover table-condensed">
-                      
-                        <tbody>
-                  
-                        <?php $total = 0 ?>
-                  
-                        @if(session('cart'))
-                            @foreach(session('cart') as $treatments_id => $details)
-                  
-                            <?php $total += $details['price']?>
-                  
-                                <tr>                           
-                                    <th>{{ $details['name'] }}</th>
-                                    
-                                    <td></td>
-                                    
-                                    <td data-th="Price" class="text-center">RM {{ number_format($details['price'],2) }}</td>
-                                    <td></td>
-                                </tr>
-                            @endforeach
-                        @endif
-                  
-                        </tbody>
-                        <td>
-                        
-                        </td>
-                    </table>
-                    
-                    </div>
-                  </div>
+                
                 </div>
               </section>
           <!--================End Order Details Area =================-->

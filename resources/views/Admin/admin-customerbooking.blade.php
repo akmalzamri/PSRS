@@ -38,7 +38,8 @@ Register User
                             <th>Booking ID</th>
                             <th> Customer Email </th>
                             <th>Date Time </th>
-                            
+                            <th> Treatment </th> 
+                            <th> Amount (RM)</th> 
                             <th> Status </th> 
                             <th> Action </th>
 
@@ -51,7 +52,8 @@ Register User
                                 <td> {{ $row->user_email }}</td>
                                 <td> {{ $row->booking_date }}
                                  {{ $row->booking_time }}</td>
-                          
+                                 <td>  {{ json_encode($row->treatment_name) }} </td>
+                                 <td> {{ $row->total_amount }}</td>
                                 <td> @if($row->status==0)
                                     <p class="badge badge-warning">Book</p>
                                     @elseif($row->status==1)

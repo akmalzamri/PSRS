@@ -13,7 +13,7 @@
                 <h4>Check your cart and select Time and Date for your session.</h4>
                 
                 <?php $total = 0 ?>
-             
+                <?php $totalduration = 0 ?>
                 @if(session('cart'))
                 <form class="" action={{URL::to('/booking4')}} method="post">
                     {{ csrf_field() }}
@@ -80,7 +80,8 @@
                     <tr>
                         <th style="width:50%"><h5>Product</h5></th>
                         <th style="width:10%"><h5>Price</h5></th>
-                        <th style="width:8%"></th>
+                        <th style="width:8%"><h5>Duration</h5></th>
+                        <th style="width:8%"><h5></h5></th>
                         <th style="width:22%" class="text-center"><h5>Subtotal</h5></th>
                         <th style="width:10%"></th>
                     </tr>
@@ -90,12 +91,14 @@
                         @foreach(session('cart') as $treatments_id => $details)
              
                             <?php $total += $details['price'] * $details['quantity'] ?>
+                            <?php $totalduration += $details['duration']?>
                         <tr>
                             <td data-th="Product">{{ $details['name'] }}</td>
                             <td data-th="Price">RM {{ $details['price'] }}</td>
-                            <td data-th="Quantity">
-                            </td>
+                            <td data-th="Price"> {{ $details['duration'] }} Hour</td>
+                            <td data-th="Quantity"></td>
                             <td data-th="Subtotal" class="text-center">RM {{ $details['price'] * $details['quantity'] }}</td>
+                            
                             <td class="actions" data-th="">
                                 <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $treatments_id }}"><i class="fa fa-trash-o"></i></button>
                             </td>
@@ -113,13 +116,18 @@
                     <td class="hidden-xs text-center"></td>
                 </tr>
                 <tr>
+                    <td><h6>Total duration</h6></td>
                     <td></td>
                     <td colspan="2" class="hidden-xs"></td>
-                    <td class="hidden-xs text-center"><h4><strong>Total RM {{ $total }}</strong></h4></td>
+                    <td class="hidden-xs text-center"><h6>{{ $totalduration }} Hours</h6></td>
+                    
+                    
                 </tr>
                 <tr>
-                    <td></td>
+                    <td><h4><strong>Total Price</strong></td>
+                      <td></td>
                     <td colspan="2" class="hidden-xs"></td>
+                    <td class="hidden-xs text-center"><h4><strong> RM {{ number_format($total,2) }}</strong></h4></td>
                     <td></td>
                    
                 </tr>

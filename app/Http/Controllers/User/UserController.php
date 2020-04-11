@@ -119,7 +119,8 @@ class UserController extends Controller
                     $treatments_id => [
                         "name" => $treatment->treatmentname,
                         "quantity" => 1,
-                        "price" => $treatment->treatmentprice
+                        "price" => $treatment->treatmentprice,
+                        "duration" => $treatment->treatmentduration
 
                     ]
             ];
@@ -144,7 +145,8 @@ class UserController extends Controller
         $cart[$treatments_id] = [
             "name" => $treatment->treatmentname,
             "quantity" => 1,
-            "price" => $treatment->treatmentprice
+            "price" => $treatment->treatmentprice,
+            "duration" => $treatment->treatmentduration
            
         ];
  
@@ -181,15 +183,14 @@ class UserController extends Controller
 
 
 
-    // public function choosetheraphist(Request $request)
-    // {
-    //     $users = \App\User::where('status', '1')->get();
+    public function details($treatments_id)
+    {
+        $treatment = \App\Treatments::findOrFail($treatments_id);
 
-    //     $request->session()->put('date',$request->input('date'));
-    //     $request->session()->put('time',$request->input('time'));
+       
 
-    //     return view('user/booking-step3')->with('users', $users)->with('date',$request->session()->get('date'))->with('time',$request->session()->get('time'));
-    // }
+        return view('user/booking-step3')->with('treatment', $treatment);
+    }
 
 
     public function bookingstep4(Request $request)
@@ -212,14 +213,18 @@ class UserController extends Controller
         
         $carts = session()->get('cart');
         $total = 0;
+        $totalduration = 0;
 
         foreach ($carts as $cart) {
             
             $total = $total + ($cart['price'] * $cart['quantity']);
-            $treatment = $cart['name'];
+            $totalduration = $totalduration + $cart['duration'];
+            $treatment[] = $cart['name'];
+            $treatmentprice[] = $cart['price'];
+            $treatmentduration[] = $cart['duration'];
         }
         // dd($cart,$total,$treatment);
-      
+    //   dd($totalduration);
 
 
         $bookings = new bookings();
@@ -232,7 +237,8 @@ class UserController extends Controller
         $bookings->therapist =  $request->session()->get('therapist');
         $bookings->total_amount = $total;
         $bookings->treatment_name = $treatment;
-        // $bookings->treatments_id = $request->session('cart')->get($treatments_id);
+        $bookings->treatmentduration = $totalduration;
+ 
      
         $bookings->status = 0;
       

@@ -62,11 +62,29 @@ View Booking
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <div class="form-group">
                                 <label>Treatment</label>
-                                <input type="message" class="form-control" value="{{ $bookings->treatment_name }}" disabled>
+                                <input type="message" class="form-control" value="{{ json_encode($bookings->treatment_name) }}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label>Total Price (RM)</label>
+                                <input type="message" class="form-control" value="{{ $bookings->total_amount }}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label>Duration of Treatment</label>
+                                <input type="message" class="form-control" value="{{ $bookings->treatmentduration }} Hour" disabled>
                             </div>
                         </div>
                     </div>

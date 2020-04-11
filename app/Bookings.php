@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bookings extends Model
 {
-    //
+    protected $casts = [
+        'treatment_name' => 'array',
+        'cart' => 'array',
+      ];
 }

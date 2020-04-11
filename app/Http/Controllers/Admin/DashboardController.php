@@ -269,7 +269,7 @@ class DashboardController extends Controller
         $treatments->delete();
 
         
-        return redirect('/admin-treatments')->with('status', 'Your Enquiries is Deleted');
+        return redirect('/admin-treatments')->with('status', 'Your treatment is Deleted');
     }
 
 
