@@ -35,19 +35,19 @@
                  
                     </thead>
                     <tbody>
-                        @foreach ($managebookings as $row)
+                        @foreach ($managebookings as $managebooking)
                         <tr>
                            
-                            <td>  {{ $row->id }} </td>        
-                            <td>  {{ $row->booking_date }} {{ $row->booking_time }}</td>
-                            <td>  {{ json_encode($row->treatment_name) }} </td>
-                            <td>  {{ $row->therapist }} </td>
-                            <td>  RM {{ $row->total_amount }} </td>
-                            <td>  {{ $row->treatmentduration }} Hour </td>
+                            <td>  {{ $managebooking->id }} </td>        
+                            <td>  {{ $managebooking->managebooking }} {{ $managebooking->booking_time }}</td>
+                            <td>  {{ json_encode($managebooking->treatment_name) }} </td>
+                            <td>  {{ $managebooking->therapist }} </td>
+                            <td>  RM {{ $managebooking->total_amount }} </td>
+                            <td>  {{ $managebooking->treatmentduration }} Hour </td>
                            
                             <td>
                                
-                                <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$row->id}})" 
+                                <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$managebooking->id}})" 
                                     data-target="#DeleteModal" class="btn btn-s btn-danger"><i class="fa fa-trash"></i> </a>
                             </td>
                         </tr>

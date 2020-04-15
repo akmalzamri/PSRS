@@ -40,8 +40,8 @@ Register User
                             <th>Date Time </th>
                             <th> Treatment </th> 
                             <th> Amount (RM)</th> 
-                            <th> Status </th> 
-                            <th> Action </th>
+                            <th> Treatment Duration </th> 
+                        
 
                         </thead>
                         <tbody>
@@ -54,22 +54,8 @@ Register User
                                  {{ $row->booking_time }}</td>
                                  <td>  {{ json_encode($row->treatment_name) }} </td>
                                  <td> {{ $row->total_amount }}</td>
-                                <td> @if($row->status==0)
-                                    <p class="badge badge-warning">Book</p>
-                                    @elseif($row->status==1)
-                                    <p class="badge badge-danger">Pending</p>
-                                    @else
-                                    -Nothing to show-
-                                    @endif
-                                </td>
-                                <td>
-                              
-
-                                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$row->id}})" 
-                                    data-target="#DeleteModal" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
-                     
-                                 
-                                </td>
+                                <td>     {{ $row->treatmentduration }}  Hour</td>
+                               
                             </tr>
                             @endforeach
                         </tbody>
@@ -82,30 +68,7 @@ Register User
     </div>
 </div>
 
-<div id="DeleteModal" class="modal fade text-danger" role="dialog">
-    <div class="modal-dialog ">
-        <!-- Modal content-->
-        <form action="" id="deleteForm" method="post">
-            <div class="modal-content">
-                <div class="modal-header bg-danger">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title text-center">DELETE CONFIRMATION</h4>
-                </div>
-                <div class="modal-body">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                    <p class="text-center">Are You Sure Want To Delete ?</p>
-                </div>
-                <div class="modal-footer">
-                    <center>
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
-                        <button type="submit" name="" class="btn btn-danger" data-dismiss="modal" onclick="formSubmit()">Yes, Delete</button>
-                    </center>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+
 
 @endsection
 
@@ -114,19 +77,7 @@ Register User
 @section('scripts')
 
 <script type="text/javascript">
-     function deleteData(id)
-     {
-         var id = id;
-         var url = "/role-delete-customerbooking/{id}";
-         url = url.replace('{id}', id);
-         $("#deleteForm").attr('action', url);
-     }
-
-     function formSubmit()
-     {
-         $("#deleteForm").submit();
-     }
-
+  
      $(document).ready( function ()
      {
         $('#datatable').DataTable();

@@ -78,5 +78,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/therapistmanagebooking', 'Therapist\TherapistController@managebooking')->name('therapist/therapist-managebookings');
     Route::get('/therapist-view-booking/{id}', 'Therapist\TherapistController@viewbookings');
     Route::post('/therapistmanagebooking', 'Therapist\TherapistController@emailenquiries');
+    Route::delete('/role-delete-booking/{id}', 'Therapist\TherapistController@bookingdelete');
 
     Route::get('/home', 'HomeController@index')->name('home');

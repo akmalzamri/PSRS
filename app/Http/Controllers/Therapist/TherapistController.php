@@ -118,5 +118,13 @@ class TherapistController extends Controller
 
         return redirect('therapistmanagebooking')->with('status', 'Your Email have been sent!');
     }
+
+    public function bookingdelete(Request $request, $id)
+    {
+        $Bookings = Bookings::findOrFail($id);
+        $Bookings->delete();
+
+        return redirect('therapistmanagebooking')->with('status', 'Your Customer Bookings is Deleted');
+    }
     
 }

@@ -31,12 +31,12 @@
                     <p>{{$treatment->treatmentdescription}}</p>
                     {{-- <div class="product_count">
           
-                        <a class="button primary-btn" href="/cart">Add to Cart</a>               
+                        <a class="button primary-btn" href="/home">Back</a>               
                     </div> --}}
-                    {{-- <div class="card_area d-flex align-items-center">
-                        <a class="icon_btn" href="#">Add to Cart</a>
+                    <div class="card_area d-flex align-items-center">
+                        <a class="btn btn-warning" href="/home">Back</a>
                         {{-- <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a> --}}
-                    {{-- </div> --}}
+                    </div>
                 </div>
             </div>
         </div>
